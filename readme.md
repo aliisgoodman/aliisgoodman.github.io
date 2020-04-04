@@ -1,7 +1,7 @@
 <h2>陈力的个人项目展示：</h2>
 <h4>联系电话：xxx</h4>
 <ul style="list-style: none;margin: 0;padding: 0;font-family: '微软雅黑';">
-<li >一、HTML+DIV+CSS项目：采用div和html基本标签实现结构层搭建，用css中浮动和定位等基本样式对结构层进行渲染。
+<li>一、HTML+DIV+CSS项目：采用div和html基本标签实现结构层搭建，用css中浮动和定位等基本样式对结构层进行渲染。
 <ol style="display: flex;flex-wrap: wrap;justify-content: space-around;">
  <li><a  target="-blank" style="color: rgba(25, 34, 218, 0.993); 
  font-style: italic; " href="./原生js+html+css/红旗汽车官网/hongqi.html">红旗汽车官网</a></li>
