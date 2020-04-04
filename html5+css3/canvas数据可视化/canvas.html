@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@4.7.0/dist/echarts.min.js"></script>
+    <style>
+      canvas {
+        border: 1px solid seagreen;
+      }
+      .wrap > div {
+        float: left;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <p>原生js数据可视化canvas:</p>
+      <canvas id="canvas" width="200" height="200"></canvas>
+      <canvas id="canvas1" width="200" height="200"></canvas>
+      <canvas id="canvas2" width="200" height="200"></canvas>
+
+    </div>
+    <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+    <div class="wrap">
+      <p> echartsjs数据可视化使用:</p>
+      <div id="main" style="width: 600px;height:400px;"></div>
+      <div id="main1" style="width: 600px;height:400px;"></div>
+      <div id="main2" style="width: 600px;height:400px;"></div>
+      <div id="main3" style="width: 600px;height:400px;"></div>
+
+
+
+    </div>
+    <script>
+      // canvas代码提示，还有个插件是代码块。
+      /**@type {HTMLCanvasElement}*/
+      var canvas = document.getElementById("canvas");
+      var context = canvas.getContext("2d");
+      var array = [80, 132, 50, 63, 140, 32, 88];
+      // 移动坐标轴0.0点   第一个canvas
+      context.translate(20, 180);
+      // 画x，y轴
+      context.beginPath();
+
+      context.strokeStyle = "#000";
+
+      context.moveTo(0, 0);
+      context.lineTo(170, 0);
+      context.stroke();
+
+      context.font = "12px 微软雅黑";
+      context.fillText("x", 160, 15);
+
+      context.moveTo(170, 0);
+      context.lineTo(160, -4);
+      context.stroke();
+
+      context.moveTo(170, 0);
+      context.lineTo(160, 4);
+      context.stroke();
+
+      context.moveTo(0, 0);
+      context.lineTo(0, -170);
+      context.stroke();
+
+      context.font = "12px 微软雅黑";
+      context.fillText("y", -15, -160);
+
+      context.moveTo(0, -170);
+      context.lineTo(-4, -160);
+      context.stroke();
+
+      context.moveTo(0, -170);
+      context.lineTo(4, -160);
+      context.stroke();
+
+      context.font = "12px 微软雅黑";
+      context.fillText("0.3", -20, -40);
+      context.font = "12px 微软雅黑";
+      context.fillText("0.6", -20, -90);
+      context.font = "12px 微软雅黑";
+      context.fillText("0.9", -20, -140);
+
+      context.closePath();
+
+      var a = 0;
+      var timer = setInterval(function() {
+        a++;
+        context.fillStyle = "lightgreen";
+        array.forEach(function(ele, index) {
+          context.fillRect(20 * (index + 1), 0, 10, (-ele / 100) * a);
+        });
+        if (a >= 100) {
+          clearInterval(timer);
+          context.beginPath();
+
+          context.strokeStyle = "lightblue";
+
+          context.moveTo(-5, -40);
+          context.lineTo(160, -40);
+          context.stroke();
+
+          context.moveTo(-5, -90);
+          context.lineTo(160, -90);
+          context.stroke();
+
+          context.moveTo(-5, -140);
+          context.lineTo(160, -140);
+          context.stroke();
+          context.closePath();
+        }
+      }, 30);
+
+      // 第2个canvas
+      var canvas1 = document.getElementById("canvas1");
+      var context1 = canvas1.getContext("2d");
+      var array = [80, 132, 50, 90, 140, 32, 88];
+      context1.translate(20, 180);
+      // 画x，y轴
+      context1.beginPath();
+
+      context1.strokeStyle = "#000";
+
+      context1.moveTo(0, 0);
+      context1.lineTo(170, 0);
+      context1.stroke();
+
+      context1.font = "12px 微软雅黑";
+      context1.fillText("x", 160, 15);
+
+      context1.moveTo(170, 0);
+      context1.lineTo(160, -4);
+      context1.stroke();
+
+      context1.moveTo(170, 0);
+      context1.lineTo(160, 4);
+      context1.stroke();
+
+      context1.moveTo(0, 0);
+      context1.lineTo(0, -170);
+      context1.stroke();
+
+      context1.font = "12px 微软雅黑";
+      context1.fillText("y", -15, -160);
+
+      context1.moveTo(0, -170);
+      context1.lineTo(-4, -160);
+      context1.stroke();
+
+      context1.moveTo(0, -170);
+      context1.lineTo(4, -160);
+      context1.stroke();
+      context1.closePath();
+
+      context1.beginPath();
+
+      array.forEach(function(ele, index) {
+        context1.strokeStyle = "orange";
+
+        if (index == 0) {
+          context1.moveTo(20 * (index + 1), -ele);
+        } else {
+          context1.lineTo(20 * (index + 1), -ele);
+        }
+        context1.stroke();
+      });
+
+      context1.closePath();
+
+      var canvas2 = document.getElementById("canvas2");
+      var context2 = canvas2.getContext("2d");
+      var j = 0;
+      var k = 0;
+
+      var timer1 = setInterval(function() {
+        j += 0.01;
+        context2.beginPath();
+        context2.moveTo(100, 100);
+        context2.fillStyle = "red";
+        context2.arc(100, 100, 60, (-1 / 2) * Math.PI, (-1 / 2 + j) * Math.PI);
+        context2.fill();
+        context2.closePath();
+        context2.beginPath();
+        context2.moveTo(100, 100);
+        context2.fillStyle = "white";
+        context2.arc(100, 100, 30, 0,2* Math.PI);
+        context2.fill();
+        context2.closePath();
+        if (j >= 1.8) {
+          clearInterval(timer1);
+          var timer2 = setInterval(function() {
+          k += 0.01;
+          
+          context2.beginPath();
+          context2.moveTo(100, 100);
+          context2.fillStyle = "orange";
+          context2.arc(100, 100, 60, -0.7 * Math.PI, (-0.7 + k) * Math.PI);
+          context2.fill();
+          context2.closePath();
+          context2.beginPath();
+        context2.moveTo(100, 100);
+        context2.fillStyle = "white";
+        context2.arc(100, 100, 30, 0,2* Math.PI);
+        context2.fill();
+        context2.closePath();
+          if (-0.7 + k >= -0.5) {
+            clearInterval(timer2);
+          }
+        }, 30);
+        }
+      }, 30);
+
+      // echartsjs使用
+
+      // 基于准备好的dom，初始化echarts实例
+      var myChart = echarts.init(document.getElementById("main"));
+
+      // 指定图表的配置项和数据
+      var option = {
+        title: {
+          text: "各个商品销量比例"
+        },
+        tooltip: {},
+        legend: {
+          data: ["销量"]
+        },
+        xAxis: {
+          data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
+        },
+        yAxis: {},
+        series: [
+          {
+            name: "销量",
+            type: "bar",
+            data: [5, 20, 36, 10, 10, 20]
+          }
+        ]
+      };
+
+      // 使用刚指定的配置项和数据显示图表。
+      myChart.setOption(option);
+
+      // 第二个echatsjs
+
+      var myChart1 = echarts.init(document.getElementById("main1"));
+
+      var xAxisData = [];
+var data1 = [];
+var data2 = [];
+for (var i = 0; i < 100; i++) {
+    xAxisData.push('类目' + i);
+    data1.push((Math.sin(i / 5) * (i / 5 -10) + i / 6) * 5);
+    data2.push((Math.cos(i / 5) * (i / 5 -10) + i / 6) * 5);
+}
+
+var option1 = {
+    title: {
+        text: '各类项目完成度比例'
+    },
+    legend: {
+        data: ['bar', 'bar2']
+    },
+    toolbox: {
+        // y: 'bottom',
+        feature: {
+            magicType: {
+                type: ['stack', 'tiled']
+            },
+            dataView: {},
+            saveAsImage: {
+                pixelRatio: 2
+            }
+        }
+    },
+    tooltip: {},
+    xAxis: {
+        data: xAxisData,
+        splitLine: {
+            show: false
+        }
+    },
+    yAxis: {
+    },
+    series: [{
+        name: 'bar',
+        type: 'bar',
+        data: data1,
+        animationDelay: function (idx) {
+            return idx * 10;
+        }
+    }, {
+        name: 'bar2',
+        type: 'bar',
+        data: data2,
+        animationDelay: function (idx) {
+            return idx * 10 + 100;
+        }
+    }],
+    animationEasing: 'elasticOut',
+    animationDelayUpdate: function (idx) {
+        return idx * 5;
+    }
+};
+      myChart1.setOption(option1);
+
+// 第三个echartsjs
+      var myChart2 = echarts.init(document.getElementById("main2"));
+
+var option2 = {
+  
+    tooltip: {
+        trigger: 'item',
+        formatter: '{a} <br/>{b}: {c} ({d}%)'
+    },
+    legend: {
+        orient: 'vertical',
+        left: 10,
+        data: ['直达', '营销广告', '搜索引擎', '邮件营销', '联盟广告', '视频广告', '百度', '谷歌', '必应', '其他']
+    },
+    series: [
+        {
+            name: '访问来源',
+            type: 'pie',
+            selectedMode: 'single',
+            radius: [0, '30%'],
+
+            label: {
+                position: 'inner'
+            },
+            labelLine: {
+                show: false
+            },
+            data: [
+                {value: 335, name: '直达', selected: true},
+                {value: 679, name: '营销广告'},
+                {value: 1548, name: '搜索引擎'}
+            ]
+        },
+        {
+            name: '访问来源',
+            type: 'pie',
+            radius: ['40%', '55%'],
+            label: {
+                formatter: '{a|{a}}{abg|}\n{hr|}\n  {b|{b}：}{c}  {per|{d}%}  ',
+                backgroundColor: '#eee',
+                borderColor: '#aaa',
+                borderWidth: 1,
+                borderRadius: 4,
+                // shadowBlur:3,
+                // shadowOffsetX: 2,
+                // shadowOffsetY: 2,
+                // shadowColor: '#999',
+                // padding: [0, 7],
+                rich: {
+                    a: {
+                        color: '#999',
+                        lineHeight: 22,
+                        align: 'center'
+                    },
+                    // abg: {
+                    //     backgroundColor: '#333',
+                    //     width: '100%',
+                    //     align: 'right',
+                    //     height: 22,
+                    //     borderRadius: [4, 4, 0, 0]
+                    // },
+                    hr: {
+                        borderColor: '#aaa',
+                        width: '100%',
+                        borderWidth: 0.5,
+                        height: 0
+                    },
+                    b: {
+                        fontSize: 16,
+                        lineHeight: 33
+                    },
+                    per: {
+                        color: '#eee',
+                        backgroundColor: '#334455',
+                        padding: [2, 4],
+                        borderRadius: 2
+                    }
+                }
+            },
+            data: [
+                {value: 335, name: '直达'},
+                {value: 310, name: '邮件营销'},
+                {value: 234, name: '联盟广告'},
+                {value: 135, name: '视频广告'},
+                {value: 1048, name: '百度'},
+                {value: 251, name: '谷歌'},
+                {value: 147, name: '必应'},
+                {value: 102, name: '其他'}
+            ]
+        }
+    ]
+};
+
+      myChart2.setOption(option2);
+
+      // 第四个
+      var myChart3 = echarts.init(document.getElementById("main3"));
+var option3 = {
+    tooltip: {
+        trigger: 'item',
+        formatter: '{a} <br/>{b}: {c} ({d}%)'
+    },
+    legend: {
+        orient: 'vertical',
+        left: 10,
+        data: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎']
+    },
+    series: [
+        {
+            name: '访问来源',
+            type: 'pie',
+            radius: ['50%', '70%'],
+            avoidLabelOverlap: false,
+            label: {
+                show: false,
+                position: 'center'
+            },
+            emphasis: {
+                label: {
+                    show: true,
+                    fontSize: '30',
+                    fontWeight: 'bold'
+                }
+            },
+            labelLine: {
+                show: false
+            },
+            data: [
+                {value: 335, name: '直接访问'},
+                {value: 310, name: '邮件营销'},
+                {value: 234, name: '联盟广告'},
+                {value: 135, name: '视频广告'},
+                {value: 1548, name: '搜索引擎'}
+            ]
+        }
+    ]
+};
+      myChart3.setOption(option3);
+
+
+    </script>
+  </body>
+</html>

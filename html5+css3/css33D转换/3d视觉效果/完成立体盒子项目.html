@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrap">
+        <!-- 最大最外层的盒子 -->
+        <div class="box">
+            <!-- 作为基础使用的盒子 -->
+            <h3>Chenli</h3>
+            <h5>Link</h5>
+            <ul>
+                <!-- li作为树状图的的承载，
+                用伪元素before和after设置宽高作为面前的侧面，
+                用span作为顶，改变3个元素的位置或者高度实现参差不齐的感觉。
+                -->
+            <li><span></span></li>
+            <li><span></span></li>
+            <li><span></span></li>
+            <li><span></span></li>
+            <li><span></span></li>
+    
+        </ul>
+            <h6>399,000</h6>
+        </div>
+    </div>
+
+    <script>
+        document.getElementsByClassName('box')[0].onclick = function () {
+            this.classList.toggle('active')    
+        }
+    </script>
+</body>
+</html>

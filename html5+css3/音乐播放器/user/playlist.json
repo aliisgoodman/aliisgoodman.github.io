@@ -1,0 +1,35 @@
+{
+  "playlist": [
+    {
+      "id": "../user/探清水河.mp3",
+      "name": "探清水河",
+      "artists": "晓月老板",
+      "picUrl": "../user/9.jpg"
+    },
+    {
+      "id": "../user/我恨我痴心 (粤).mp3",
+      "name": "我恨我痴心 (粤)",
+      "artists": "刘德华",
+      "picUrl": "../user/7.jpg"
+    },
+    {
+      "id": "../user/It's Ok.mp3",
+      "name": "It's Ok",
+      "artists": "未知",
+      "picUrl": "../user/8.jpg"
+    },
+    {
+      "id": "../user/等我回家.mp3",
+      "name": "等我回家",
+      "artists": "薛之谦",
+      "picUrl": "../user/2.jpg"
+    },
+    {
+      "id": "../user/天空之城.mp3",
+      "name": "天空之城",
+      "artists": "久石让",
+      "picUrl": "../user/1.jpg"
+    }
+  ]
+}
+

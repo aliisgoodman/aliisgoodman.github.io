@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+<style>
+	*{margin: 0;padding: 0;}
+	div.wrap{width: 800px;margin: 0 auto;padding: 20px;}	
+
+	div.wrap>div.top{width: 100%;height: 280px;padding: 18px 0;}
+	div.wrap>div.top>p{width: 100%;}
+	div.wrap>div.top>p>span{float: right;font-size: 14px;}
+	div.wrap>div.top>p>span>a{color: red;}
+
+	div.wrap>div.top>textarea{width: 100%;height: 170px;resize: none;margin: 10px 0;padding: 10px ;font-size: 16px;box-sizing: border-box;}
+
+	div.wrap>div.top>button{width: 80px;height: 50px;line-height: 50px;background: lightblue;outline: 0;text-align: center;border-radius: 20px;float: right;cursor: pointer;transition: all 1s;font-size: 16px;}
+	div.wrap>div.top>button:hover{background: orange;box-shadow: 2px 2px 2px gray;}
+
+	div.wrap>div.content{width: 780px;height:60px;border: 1px solid gray;padding: 10px;margin: 0 0 10px 0;}
+	div.wrap>div.content>span{display: block;width: 60px;height: 60px;float: left;margin-right: 20px;background: url(1.jpg) 0 0 /100% ;}
+	div.wrap>div.content>p{width: 600px;float: left;padding: 8px 0;}
+	div.wrap>div.content>button{width: 80px;height: 30px;float: right;margin-top: 25px;border-radius: 10px;outline: 0;}
+	div.wrap>div.content>button:hover{background: red;}
+
+
+
+</style>
+
+
+
+</head>
+<body>
+	
+	<div class="wrap">
+		<div class="top">
+
+			<p>你想对楼主说些什么：<span>你还可以输入<a>80</a>个字。</span></p>
+	
+			<textarea  id="textarea" ></textarea>
+		
+			<button>确定发送</button>
+		
+		</div>
+		
+		<!-- <div class="content">
+
+			<span></span>
+
+			<p>希望能够在多给我一些时间，去弥补以前犯下的一些时间，去弥补以前犯下的错去弥补以前犯下的错去弥补以前犯下的错</p>
+
+			<button>删除</button>
+
+		</div> -->
+
+		
+
+	</div>
+
+
+	<script>
+		
+		var wrap = document.getElementsByClassName('wrap')[0];
+		var wrapTop = wrap.getElementsByClassName('top')[0];
+		var as = wrapTop.getElementsByTagName('a')[0];
+		var textarea = wrapTop.getElementsByTagName('textarea')[0];
+		var buttonTop = wrapTop.getElementsByTagName('button')[0];
+
+
+		//显示还可以输入多少字数。
+		textarea.onkeyup = function(){
+
+			if (80-this.value.length >= 0) {
+				as.innerHTML = 80-this.value.length;
+			}else{
+				this.value = this.value.substring(0,80)
+			}	
+		}
+
+		//设置localStorage，输出到留言板上
+
+		//设置点击事件创建缓存
+		buttonTop.onclick = function(){
+			//判断如果输入域无内容则不执行
+			if (!textarea.value.trim()) {
+				//将输入的空格去掉，让光标回到零点
+				// textarea.value = textarea.value.substring(0,1);
+				textarea.value = '';
+
+				return;
+
+			}else{
+				//判断是否有缓存
+				var str = window.localStorage.getItem('asList');
+				//使用原来的缓存的数字或者新数组
+				var arr = JSON.parse(str) || [];
+				//创建对像接收数据，此地可以不用创建，对象可以接收多个数据方便操作
+				var obj = {
+					text : textarea.value,
+				}
+				//将输入域的内容压入数组
+				arr.push(obj)	
+				//将数组创建成字符串保存到缓存方便使用
+				window.localStorage.setItem('asList',JSON.stringify(arr))
+				//本地刷新
+				window.location.reload();
+
+				}	
+		}
+		//绑定本地刷新事件
+		window.onload = function(){
+			//获取创建好的缓存并转换为数组
+			var arr = JSON.parse(window.localStorage.getItem('asList'));
+			//遍历缓存的数据，循环创建标签，循环添加内容，循环压入并输出到页面上
+			for(var i = 0;i < arr.length;i++){
+
+				var div = document.createElement('div');
+
+					div.className = 'content';
+
+				var span = document.createElement('span');
+
+				var p = document.createElement('p');
+
+					p.innerHTML = arr[i].text;
+
+				var button = document.createElement('button');
+					//给删除按钮循环创建value值对应缓存的下标，用于删除对应的缓存
+					button.setAttribute('value',i)
+					button.innerHTML = '删除';
+
+					div.appendChild(span);
+					div.appendChild(p);
+					div.appendChild(button);
+					wrap.appendChild(div)
+			}
+
+			//获取节点
+			var content = wrap.getElementsByClassName('content');
+			//循环节点
+			for(var i = 0;i < content.length;i++){
+				//找到删除键
+				var buttonClear = content[i].getElementsByTagName('button')[0];
+					//给删除键绑定事件
+					buttonClear.onclick = function(){
+						//删除对应的缓存
+						arr.splice(this.value,1)
+						//将修改后的缓存重新建立
+						window.localStorage.setItem('asList',JSON.stringify(arr))
+						//删除当前节点					
+						wrap.removeChild(this.parentNode)
+
+					}
+			}
+		}
+
+	
+
+
+	</script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,422 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: '微软雅黑';
+}
+ul{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+/*外层盒子*/
+div.wrap{
+	width: 880px;
+	margin: 0 auto;
+	background: Lavender;
+	overflow: hidden;
+}
+
+/*头部背景*/
+div.header{
+	position: relative;
+	width: 100%;
+	height: 400px;
+	background: url(1.jpg) 0px 0px ;
+}
+/*导航定位*/
+div.header>div.nav{
+	width: 880px;
+	height: 40px;
+	z-index: 9;
+	transition: all 3s;
+}
+div.header>div.nav>div{
+	float: left;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+	margin: 0 0 0 100px;
+	font-size: 24px;
+	color: 
+}
+div.header>div.nav>ul{
+	float: right;
+	margin: 0 50px 0 0;
+	font-size: 10px;
+}
+div.header>div.nav>ul>li{
+	float: left;
+	margin: 0 10px;
+	height: 40px;
+	text-align: center;
+	line-height: 44px;
+	border-bottom: 2px solid transparent;
+	box-sizing: border-box;
+	transition: all 1.5s ease-in-out;
+}
+div.header>div.nav>ul>li>a{
+	display: block;
+	height: 40px; 
+	color: #000;
+}
+div.header>div.nav>ul>li>a:hover{
+	color: orange;
+}
+/*个人照片和简介*/
+div.header>div.person{
+	width: 100%;
+	height: 300px;
+	position: absolute;
+	top: 80px;
+	left: 220px;
+	text-align: center;	
+}
+div.header>div.person>span{
+	display: block;
+	margin: 0 0 10px 150px;
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	overflow: hidden;
+	position: absolute;
+	top: -300px;
+	transition: all 2s;
+}
+div.header>div.person>div{
+	font-size: 22px;
+	margin: 0 0 0 50px;
+	position: absolute;
+	top: -300px;
+	transition: all 2s ease-in-out;
+}
+div.header>div.person>p{
+	font-size: 12px;
+	margin: 10px 0 0 60px;
+	width: 100%;
+	text-align: center;
+	position: absolute;
+	left: -650px;
+	transition: all 2s ease-in-out;
+}
+
+/*个人简历页面*/
+div.gerenjianli{
+	height: 450px;
+	width: 720px;
+	margin: 0 auto;
+}
+div.gerenjianli>div.gerenjianli-top{
+	margin: 50px 0 10px 0;
+}
+div.gerenjianli>div.gerenjianli-top>div{
+	font-size: 24px;
+}
+div.gerenjianli>div.gerenjianli-top>p{
+	font-size: 12px;
+	margin: 10px 0 40px 0;
+}
+div.gerenjianli>div.gerenjianli-bot{
+	position: relative;
+}
+div.gerenjianli>div.gerenjianli-bot>img{
+	width: 240px;
+	height: 300px;
+	display: block;
+	float: left;
+	position: absolute;
+	left: -330px;
+	transition: all 2s;
+}
+
+div.gerenjianli>div.gerenjianli-bot>div{
+	margin: 0 0 0 40px;
+	width: 420px;
+	height: 300px;
+	float: right;
+	position: absolute;
+	right: -600px;
+	transition: all 1s;
+}
+div.gerenjianli>div.gerenjianli-bot>div>div{
+	font-size: 18px;
+	margin: 0 0 10px 0;
+}
+div.gerenjianli>div.gerenjianli-bot>div>p{
+	font-size: 12px;
+	line-height: 18px;
+	margin: 0 0 8px 0;
+}
+div.gerenjianli>div.gerenjianli-bot>div>ul{
+	width: 420px;
+	height: 190px;
+}
+div.gerenjianli>div.gerenjianli-bot>div>ul>li{
+	width: 208px;
+	height: 34px;
+	line-height: 30px;
+	float: left;
+	margin: 2px 0;
+	font-size: 10px;
+	font-weight: 800;
+}
+div.gerenjianli>div.gerenjianli-bot>div>ul>li>span{
+	color: #666;
+	font-weight: 400;
+	margin: 0 0 0 5px;
+}
+
+/*求学和工作经历*/
+div.qiuxuehegongzuo{
+	padding: 40px 0 0 0 ;
+	height: 450px;
+	width: 720px;
+	margin: 0 auto;
+}
+
+div.qiuxuehegongzuo>div.qiuxuehegongzuo-top{
+	text-align: center;
+}
+div.qiuxuehegongzuo>div.qiuxuehegongzuo-top>div{
+	font-size: 22px;
+}
+div.qiuxuehegongzuo>div.qiuxuehegongzuo-top>p{
+	font-size: 10px;
+	margin: 15px 0;
+}
+div.qiuxuehegongzuo>div.qiuxuehegongzuo-bot{
+	position: relative;
+}
+div.qiuxuehegongzuo>div.qiuxuehegongzuo-bot>ul{
+	width: 350px;
+	float: left;
+	font-size: 14px;
+	font-weight: 800;
+	padding:10px 0 25px 0;
+}
+div.qiuxuehegongzuo>div.qiuxuehegongzuo-bot>ul>li{
+	position: relative;
+	font-weight: 400;
+	font-size: 10px;
+	width: 300px;
+	padding: 40px 0 0px 50px;
+	line-height: 22px;
+	color: #555;
+}
+div.qiuxuehegongzuo>div.qiuxuehegongzuo-bot>ul>li>span{
+	display: block;
+	position: absolute;
+	top: 45px;
+	left: 25px;
+	height: 10px;
+	width: 10px;
+	border-radius: 50%;
+	background:orange;
+}
+div.qiuxuehegongzuo>div.qiuxuehegongzuo-bot>ul.qiuxuehegongzuo-bot-qiuxue{
+	margin: 0 15px 0 2px;
+	position: absolute;
+	left: -500px;
+	transition: all 1.5s;
+}
+div.qiuxuehegongzuo>div.qiuxuehegongzuo-bot>ul.qiuxuehegongzuo-bot-gongzuo{
+	position: absolute;
+	right: -500px;
+	transition: all 2s;
+}
+
+/*专业技能*/
+div.zhuanyejineng{
+	width: 720px;
+	height: 400px;
+	margin: 60px auto;
+	position: relative;
+}
+div.zhuanyejineng>div.zhuanyejineng-left{
+	float: left;
+	width: 350px;
+	margin: 0 20px 0 0;
+}
+div.zhuanyejineng>div.zhuanyejineng-left>div{
+	font-size: 22px;
+}
+div.zhuanyejineng>div.zhuanyejineng-left>p{
+	font-size: 12px;
+	color: #555;
+	line-height: 20px;
+	margin: 40px 0;
+}
+div.zhuanyejineng>div.zhuanyejineng-left>ul{
+	font-size: 10px;
+	color: #444;
+	position: relative;
+}
+div.zhuanyejineng>div.zhuanyejineng-left>ul>li{
+	height: 50px;
+	position: relative;
+}
+div.zhuanyejineng>div.zhuanyejineng-left>ul>li>p{
+	width: 200px;
+}
+div.zhuanyejineng>div.zhuanyejineng-left>ul>li>p>span{
+	float: right;
+	display: block;
+}
+div.zhuanyejineng>div.zhuanyejineng-left>ul>li>hr{
+	float: left;
+	margin: 5px 0 0 0 ;
+	height: 3px;
+}
+div.zhuanyejineng>div.zhuanyejineng-left>ul>.li1{
+	left: -400px;
+	transition: all 2s ease-in;
+}
+div.zhuanyejineng>div.zhuanyejineng-left>ul>.li1>.hr1{
+	background: orange;
+	width: 130px;
+}
+div.zhuanyejineng>div.zhuanyejineng-left>ul>.li1>.hr2{
+	width: 70px;
+	background: #ccc;
+}
+div.zhuanyejineng>div.zhuanyejineng-left>ul>.li2{
+	right: -500px;
+	z-index: -1;
+	transition: all 2.5s ease-in-out;
+}
+div.zhuanyejineng>div.zhuanyejineng-left>ul>.li2>.hr1{
+	background: orange;
+	width: 100px;
+}
+div.zhuanyejineng>div.zhuanyejineng-left>ul>.li2>.hr2{
+	width: 100px;
+	background: #ccc;
+}
+div.zhuanyejineng>div.zhuanyejineng-left>ul>.li3{
+	left: -400px;
+	top: 100px;
+	transition: all 3s;
+}
+div.zhuanyejineng>div.zhuanyejineng-left>ul>.li3>.hr1{
+	background: orange;
+	width: 160px;
+}
+div.zhuanyejineng>div.zhuanyejineng-left>ul>.li3>.hr2{
+	width: 40px;
+	background: #ccc;
+}
+div.zhuanyejineng>div.zhuanyejineng-left>ul>.li4{
+	z-index: -1;
+	top: 300px;
+	transition: all 2s;
+}
+div.zhuanyejineng>div.zhuanyejineng-left>ul>.li4>.hr1{
+	background: orange;
+	width: 120px;
+}
+div.zhuanyejineng>div.zhuanyejineng-left>ul>.li4>.hr2{
+	width: 80px;
+	background: #ccc;
+}
+
+div.zhuanyejineng>img{
+	display: block;
+	float: left;
+	width: 350px;
+	height: 400px;
+	position: absolute;
+	z-index: -1;
+	bottom: -500px;
+	transition: all 3s;
+}
+
+/*我的作品*/
+div.wodezuopin{
+	padding: 40px 0 0 0 ;
+	height: 450px;
+	width: 720px;
+	margin: 0 auto;
+}
+div.wodezuopin>div.wodezuopin-top{
+	text-align: center;
+}
+div.wodezuopin>div.wodezuopin-top>div{
+	font-size: 22px;
+}
+div.wodezuopin>div.wodezuopin-top>p{
+	font-size: 12px;
+	color: #555;
+	margin: 15px 0;
+}
+div.wodezuopin>ul{
+	width: 720px;
+	position: relative;
+}
+div.wodezuopin>ul>li{
+	float: left;
+	width: 200px;
+	height: 150px;
+	background: orange;
+	margin: 15px 20px;
+	border-radius: 80px;
+	padding: 50px 0 0 0;
+	box-sizing: border-box;
+	position: absolute;
+	transition: all 3s;
+}
+div.wodezuopin>ul>li>a{
+	display: block;
+	
+	color: #000;
+	font-size: 14px;
+}
+div.wodezuopin>ul>li:hover{
+	background: blue;
+}
+div.wodezuopin>ul>li>a:hover{
+	color: #fff;
+}
+
+/*联系我*/
+div.callme{
+	color: #fff;
+	height: 140px;
+	padding: 10px 40px;
+	background: #456;
+}
+div.callme>span{
+	font-size: 22px;
+}
+div.callme>span:hover{
+	color: orange;
+	cursor: pointer;
+}
+div.callme>ul{
+	margin: 10px 0;
+	height: 30px;
+	position: relative;
+}
+div.callme>ul>li{
+	float: left;
+	margin: 0 40px;
+	position: absolute;
+	transition: all 1.5s;
+}
+div.callme>ul>li:hover{
+	color: orange;
+	cursor: pointer;
+}
+div.callme>p{
+	margin: 10px 0 0 0 ;
+	position: absolute;
+	left: -300px;
+	transition: all 2s;
+}
+div.callme>p:hover{
+	color: orange;
+	cursor: pointer;
+}
+div.callme>div:hover{
+	color: orange;
+	cursor: pointer;
+}

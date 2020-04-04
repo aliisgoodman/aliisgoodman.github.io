@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <select id="prov">
+        <option selected disabled>-请选择省份-</option>
+    </select>
+    <select id="citys">
+        <option selected>-请选择城市-</option>
+    </select>
+
+    <script>
+
+        $.get('./citys.json', function (data) {
+
+            data.provinces.forEach(function (ele, index) {
+
+                $('#prov').append('<option value=' + index + '>' + ele.provinceName + '</option>')
+                
+            });
+        })
+
+        $('#prov').on('change', function () {
+
+            $('#citys').empty().append('<option>-请选择城市-</option>')
+
+            var index = this.value
+
+            $.get('citys.json', function (data) {
+
+                console.log(data.provinces[index]);
+
+                data.provinces[index].citys.forEach(function (ele) {               
+
+                    $('#citys').append('<option>' + ele.citysName + '</option>')
+
+                });
+            })
+
+        })
+
+
+
+
+    </script>
+</body>
+
+</html>

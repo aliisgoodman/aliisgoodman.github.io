@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .wrap {
+        width: 400px;
+        height: 400px;
+        margin: 0 auto;
+        display: flex;
+        perspective: 400px;
+        align-items: flex-start;
+      }
+      .wrap > ul {
+        margin: auto;
+        width: 100px;
+        height: 100px;
+        position: relative;
+        top: 0;
+        left: 0;
+        /* background: rgb(62, 192, 224); */
+        /* border-radius: 25px; */
+        transform-style: preserve-3d;
+        transform: rotate3d(0.3, 0.5, 0.8, 60deg);
+        animation: bigHappy 2s infinite;
+        transform: rotate3d(0.1, -0.1,-0.1, 50deg);
+      }
+      .wrap > ul.active{
+        animation-play-state: paused;
+      }
+      
+      .wrap > ul > li {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 25px;
+       line-height: 100px;
+       text-align: center;
+      }
+    
+      .wrap > ul > li:nth-child(1) {
+        transform: translateZ(-120px);
+        background: rgb(180, 70, 131);
+        animation: myHappy1 0.2s infinite alternate;
+        color: rgb(119, 77, 218);
+      }
+      .wrap > ul > li:nth-child(2) {
+        transform: translateZ(120px);
+        background: rgb(119, 77, 218);
+        animation: myHappy2 0.2s infinite alternate;
+        color: rgb(180, 70, 131);
+      }
+      .wrap > ul > li:nth-child(3) {
+        transform: translateX(120px) rotateY(90deg);
+        background: rgb(80, 155, 226);
+        animation: myHappy3 0.2s infinite alternate;
+        color: rgb(210, 224, 76);
+
+      }
+      .wrap > ul > li:nth-child(4) {
+        transform: translateX(-120px) rotateY(90deg);
+        color: rgb(80, 155, 226);
+
+        background: rgb(210, 224, 76);
+        animation: myHappy4 0.2s infinite alternate;
+      }
+      .wrap > ul > li:nth-child(5) {
+        transform: translateY(-120px) rotateX(90deg);
+        background: rgb(240, 93, 74);
+        animation: myHappy5 0.2s infinite alternate;
+        color: rgb(82, 73, 201);
+
+      }
+      .wrap > ul > li:nth-child(6) {
+        transform: translateY(120px) rotateX(90deg);
+        background: rgb(82, 73, 201);
+        animation: myHappy6 0.2s infinite alternate;
+        color: rgb(240, 93, 74);
+
+      }
+      .wrap > ul>li.active{
+        animation-play-state: paused;
+      }
+      @keyframes myHappy6 {
+        from {
+          transform: translateY(120px) rotateX(90deg);
+        }
+        to {
+          transform: translateY(80px) rotateX(90deg);
+        }
+      }
+      @keyframes myHappy1 {
+        from {
+          transform: translateZ(-120px);
+        }
+        to {
+          transform: translateZ(-80px);
+        }
+      }
+      @keyframes myHappy2 {
+        from {
+          transform: translateZ(120px);
+        }
+        to {
+          transform: translateZ(80px);
+        }
+      }
+      @keyframes myHappy3 {
+        from {
+          transform: translateX(120px) rotateY(90deg);
+        }
+        to {
+          transform: translateX(80px) rotateY(90deg);
+        }
+      }
+      @keyframes myHappy4 {
+        from {
+          transform: translateX(-120px) rotateY(90deg);
+        }
+        to {
+          transform: translateX(-80px) rotateY(90deg);
+        }
+      }
+      @keyframes myHappy5 {
+        from {
+          transform: translateY(-120px) rotateX(90deg);
+        }
+        to {
+          transform: translateY(-80px) rotateX(90deg);
+        }
+      }
+      @keyframes bigHappy {
+        0% {
+          transform: rotate3d(0.1, -0.1, -0.1, 0deg);
+        }
+
+        20% {
+          transform: rotate3d(0.3, -0.3, -0.3, 72deg);
+        }
+        40% {
+          transform: rotate3d(0.5, -0.5, -0.5, 144deg);
+        }
+        60% {
+          transform: rotate3d(0.7, -0.7, -0.7, 216deg);
+        }
+
+        80% {
+          transform: rotate3d(0.9, -0.9, -0.9, 288deg);
+        }
+        100% {
+          transform: rotate3d(0.1, -0.1, -0.1, 360deg);
+        }
+     
+      }
+      .wrap>button{
+        font-size: 20px;
+        color: #fff;
+        position: relative;
+        z-index: 0;
+        top: 0;
+        left: 0;
+        background: rgb(240, 190, 124);
+        padding: 10px 30px;
+        border: 0;
+        outline: 0;
+        overflow: hidden;
+        border-radius: 20px;
+        margin: auto;
+      }
+      .wrap>button::before {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 100%;
+        left: 0;
+        z-index: -1;
+        border-radius: 20px;
+        background: rgb(142, 194, 247);
+        /* transition: all 1s; */
+      }
+      .wrap> button::after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        /* z-index: -1; */
+        /* 使用重复背景给效果添加泡泡，在使用不同背景的背景位置实现上浮 */
+        background: radial-gradient(
+            circle at 50% 70%,
+            transparent 5%,
+            white 6%,
+            transparent 6.5%
+          ),
+          radial-gradient(
+            circle at 20% 40%,
+            transparent 8%,
+            white 10%,
+            transparent 10.5%
+          ),
+          radial-gradient(
+            circle at 10% 80%,
+            transparent 5%,
+            white 6%,
+            transparent 6.5%
+          ),
+          radial-gradient(
+            circle at 70% 80%,
+            transparent 7%,
+            white 8%,
+            transparent 9%
+          ),
+          radial-gradient(
+            circle at 55% 55%,
+            transparent 9%,
+            white 10%,
+            transparent 10.5%
+          ),
+          radial-gradient(
+            circle at 68% 42%,
+            transparent 8%,
+            white 9%,
+            transparent 10%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            transparent 2%,
+            white 3%,
+            transparent 3.5%
+          ),
+          radial-gradient(
+            circle at 90% 75%,
+            transparent 7%,
+            white 8%,
+            transparent 8.5%
+          );
+          /* 将所以背景设置到外面去，然后鼠标指上去冒出来 */
+          background-position: 0 100px,0 100px,0 100px,0 100px,0 100px,0 100px,0 100px,0 100px;
+        /* transition: all 1s; */
+        background-repeat: no-repeat;
+      }
+      .wrap>button:hover::before {
+        top: 0;
+        /* 此时的过渡不能加在原始元素上面，否则在hover开始和结束的时候都会过渡，
+当我们需要鼠标指上去有过渡，而鼠标移开不需要任何过渡效果的时候就可以将过渡属性与hover鼠标一上去绑定在一起。
+这样可以实现开始有过渡，而结束没有过渡
+ */
+        transition: all .6s linear;
+      }
+      .wrap> button:hover::after {
+        background-position: 20px -100px, 10px -100px,-14px -100px,20px -100px,-5px -100px ,20px -100px,32px -100px,-50px -100px;
+        opacity: 0.4;
+        transition: all 1.5s linear;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="wrap">
+      <ul >
+        <li>Hei  Man</li>
+        <li>Come bady</li>
+        <li>Hei  Girl</li>
+        <li>Loving You</li>
+        <li>My Honey</li>
+        <li>Go!</li>
+      </ul>
+      <button><span class="glyphicon glyphicon-play " aria-hidden="true"></span></button>
+
+    </div>
+
+    	<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+	<script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+	<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+  
+  <script> 
+    $('button').click(function () {
+      $(this).find('span').toggleClass('glyphicon-pause');
+      $('ul').toggleClass('active').find('li').toggleClass('active')
+    })
+  </script>
+  </body>
+</html>

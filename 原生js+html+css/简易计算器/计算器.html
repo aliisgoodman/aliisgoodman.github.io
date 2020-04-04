@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+
+	<style>
+		
+		*{margin: 0;padding: 0;list-style: none;}
+
+		div.wrap{width: 400px;margin: 40px auto;}
+		div.wrap>input{width: 400px;height:50px;border: 1px solid #ccc;border-radius: 20px;font-size: 20px;outline: 0;padding: 0 15px;box-sizing: border-box;margin: 0 0 10px 0;}
+
+		div.wrap>ul{width: 400px;}
+
+		div.wrap>ul>li{width: 100px;height: 80px;text-align: center;line-height: 80px;float: left;font-size: 30px;box-sizing: border-box;border: 2px solid #fff;background: lightblue;border-radius: 10px;cursor: pointer;}
+
+		div.wrap>ul>li.li{width: 100%;}
+
+
+	</style>
+
+
+
+</head>
+<body>
+	
+	<div class="wrap">
+		
+		<input type="text">
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>+</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+			<li>-</li>
+			<li>7</li>
+			<li>8</li>
+			<li>9</li>
+			<li>/</li>
+			<li>删除</li>
+			<li>0</li>
+			<li>=</li>
+			<li>*</li>
+			<li class="li">重新输入</li>
+		</ul>
+	</div>
+
+		<script>
+			
+			var input = document.getElementsByTagName('input')[0];
+			var lis = document.getElementsByTagName('li');
+
+
+			window.onload = function(){
+				
+					input.focus();
+				
+			}
+
+			
+
+
+			for(var i = 0;i < lis.length;i++){
+
+				lis[i].setAttribute('value',i);
+
+				lis[i].onclick = function(){
+
+					if (this.value == 12 ) {
+
+						input.value = input.value.substring(0,input.value.length-1);
+
+						if (input.value == '') {
+							input.focus();
+						}
+
+					}else if(this.value == 16){
+
+						window.location.reload();
+
+					}else if(this.value == 14){
+
+						if (input.value.trim()) {
+							//eval函数将字符转为代码并进行运算后返回结果。
+							input.value = eval(input.value)
+							
+						}
+
+						if (input.value == '') {
+								input.focus();
+						}
+
+					}else{
+						input.value += this.innerHTML;
+					}
+
+
+				}
+
+			}
+
+
+		</script>
+		
+
+
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>仿购买</title>
+
+	<style>
+		
+		*{margin: 0;padding: 0;list-style: none;}
+		body{background: #eee;}
+		.wrap{width: 600px;background: #fff;margin: 40px auto;padding: 20px;}
+		.wrap>ul{height: 70px;}
+		.wrap>ul>li{float: left;text-align: center;font-size: 18px;border: 1px solid gray;margin: 10px;padding: 10px;cursor: pointer;}
+		.wrap>ul>li.avtive{border: 2px solid red;background: url(on.png) no-repeat bottom right / 20px 20px;}
+		.wrap>ul>li.li1{border: 0;cursor: text;}
+		.wrap>.price{width: 400px;height: 50px;line-height: 50px;font-size: 35px;padding: 20px 10px;}
+		.wrap>.price>span{color: red;}
+		.wrap>button{width: 600px;height: 100px;text-align: center;line-height: 100px;font-size: 40px;background: orange;color: #fff;}	
+
+
+	</style>
+
+</head>
+<body>
+	
+	<div class="wrap">
+
+		<ul id="ul1">
+			<li class="li1">型号</li>
+			<li value="800">4.7英寸</li>
+			<li value="1000">5.5英寸</li>
+		</ul>
+		<ul id="ul2">
+			<li class="li1">颜色</li>
+			<li value="1000">白色</li>
+			<li value="1000">蓝色</li>
+			<li value="1200">微软雅黑</li>
+		</ul>
+		<ul id="ul3">
+			<li class="li1">内存</li>
+			<li value="800">32G</li>
+			<li value="1000">64G</li>
+			<li value="1200">128G</li>
+		</ul>
+		<ul id="ul4">
+			<li class="li1">版本</li>
+			<li value="1400">公开版</li>
+			<li value="1000">移动赠送版</li>
+			<li value="1000">联通合约版</li>
+		</ul>
+
+		<hr>
+
+		<div class="price">价格：<span>0</span>元。</div>
+		<button>立即购买</button>
+		
+
+
+	</div>
+
+
+	<script>
+		
+		var ul1s = document.getElementById('ul1').getElementsByTagName('li');
+		var ul2s = document.getElementById('ul2').getElementsByTagName('li');
+		var ul3s = document.getElementById('ul3').getElementsByTagName('li');
+		var ul4s = document.getElementById('ul4').getElementsByTagName('li');
+		var price = document.getElementsByClassName('price')[0].getElementsByTagName('span')[0];
+		var btn = document.getElementsByTagName('button')[0];
+		
+		
+		
+
+
+		//初始化累加价格
+		var a = 0,b = 0,c = 0,d = 0;
+		//循环绑定事件
+		for(var i = 1;i < ul1s.length;i++ ){
+
+			ul1s[i].onclick = function(){
+				//当选项被点击时，给ul添加类名用于判断该选项是否被选择。
+				document.getElementById('ul1').setAttribute('class','classs')
+				//首先清除所有选项样式，确保点击时只有一个选项被选择
+				for(var i = 1;i < ul1s.length;i++ ){
+					ul1s[i].className = '';	
+				}
+				//给当前点击的对象添加样式
+				this.className = 'avtive';
+				//通过value值判断用户的选择，赋值初始化价格并累加。
+				if (this.value == 1000) {
+					a = 200;
+					price.innerHTML = 2800+a+b+c+d;
+				}else{
+					a = 0;
+					price.innerHTML = 2800+a+b+c+d;
+				}	
+			}
+		}
+
+		for(var i = 1;i < ul2s.length;i++ ){
+
+				ul2s[i].onclick = function(){	
+					//通过上一个选项是否有类名判断上一个选项是否被选择。
+					if (document.getElementById('ul1').getAttribute('class')) {
+						//如果上一个选项被选择，则为次选项添加类名用于下一次判断。
+						document.getElementById('ul2').setAttribute('class','classs')
+						
+						for(var i = 1;i < ul2s.length;i++ ){
+							ul2s[i].className = '';	
+						}
+					
+						this.className = 'avtive';
+						
+						if (this.value == 1000) {
+							b = 0;
+							price.innerHTML = 2800+a+b+c+d;
+						}else{
+							b = 100;
+							price.innerHTML = 2800+a+b+c+d;
+						}
+				
+					}else{
+						alert('请依次选择机型')
+					}
+			}
+		}
+
+		for(var i = 1;i < ul3s.length;i++ ){
+
+			ul3s[i].onclick = function(){
+					
+					//通过上一个选项是否有类名判断上一个选项是否被选择。
+					if (document.getElementById('ul2').getAttribute('class') && document.getElementById('ul1').getAttribute('class')) {
+						//如果上一个选项被选择，则为次选项添加类名用于下一次判断。
+						document.getElementById('ul3').setAttribute('class','classs')
+
+						for(var i = 1;i < ul3s.length;i++ ){
+								ul3s[i].className = '';	
+							}
+							
+							this.className = 'avtive';
+							
+							if (this.value == 800) {
+								c = 0;
+								price.innerHTML = 2800+a+b+c+d;
+							}else if (this.value == 1000) {
+								c = 200;
+								price.innerHTML = 2800+a+b+c+d;
+							}else{
+								c = 400;
+								price.innerHTML = 2800+a+b+c+d;
+							}
+				
+					}else{
+						alert('请依次选择机型')
+					}	
+			}
+		}
+
+		for(var i = 1;i < ul4s.length;i++ ){
+
+			ul4s[i].onclick = function(){
+
+				if (document.getElementById('ul3').getAttribute('class') && document.getElementById('ul2').getAttribute('class') && document.getElementById('ul1').getAttribute('class')) {
+					//如果上一个选项被选择，则为次选项添加类名用于下一次判断。
+						document.getElementById('ul4').setAttribute('class','classs')
+
+						for(var i = 1;i < ul4s.length;i++ ){
+								ul4s[i].className = '';	
+							}
+							this.className = 'avtive';	
+							if (this.value == 1400) {
+								d = 200;
+								price.innerHTML = 2800+a+b+c+d;
+							}else{
+								d = 0;
+								price.innerHTML = 2800+a+b+c+d;
+							}
+				
+					}else{
+						alert('请依次选择机型')
+					}
+			}
+		}
+		
+		//给按钮绑定点击事件，判断用户是否选择完毕，
+		btn.onclick = function(){
+			//当四个选项都被点击过时，则付款，否则重新选择手机。
+			if (document.getElementById('ul3').getAttribute('class') && document.getElementById('ul2').getAttribute('class') && document.getElementById('ul1').getAttribute('class') && document.getElementById('ul4').getAttribute('class')) {
+				alert('请付款') 
+			}else{
+			 alert('请先选择手机')
+			}
+		}
+	
+
+
+
+
+
+	</script>
+
+
+</body>
+</html>

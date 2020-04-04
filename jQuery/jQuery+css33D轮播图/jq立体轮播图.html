@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <div class="wrap">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <ol>
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>           
+        </ol>
+        <dl>
+            <dd>></dd>
+            <dt><</dt>
+        </dl>
+    </div>
+    <script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    var index = 0
+    var index2 = 0
+    var timer
+    $('ol li').click(function () {
+        clearInterval(timer)
+        $(this).addClass('active').siblings().removeClass('active');
+        $('ul').css('transform','rotateY(-'+ $(this).index()*90 +'deg)')
+        timer = setInterval(change,2020)
+    })
+    $('dl dd').click(function () {
+        clearInterval(timer)
+        if(index<0){
+            index=0;     
+        }
+        index++;
+        index2++;
+        if(index2>3){
+            index2=0
+        }
+        $('ul').css('transform','rotateY(-'+ index*90 +'deg)')
+        $('ol li').eq(index2).addClass('active').siblings().removeClass('active'); 
+        timer = setInterval(change,2020)
+    })
+    $('dl dt').click(function () {
+        clearInterval(timer)
+        index--;
+        if(index<0){
+            index=0
+        }else{   
+            index2--;
+            if(index2<0){
+                index2=3
+            }
+        $('ul').css('transform','rotateY(-'+ index*90 +'deg)')     
+        $('ol li').eq(index2).addClass('active').siblings().removeClass('active');
+        }
+        timer = setInterval(change,2020)
+    })
+
+    timer = setInterval(change,2020)
+    function change() {
+        if(index<0){
+            index=0
+        }
+        index++;
+        index2++;
+        if(index2>3){
+            index2=0
+        }
+        $('ul').css('transform','rotateY(-'+ index*90 +'deg)');
+        $('ol li').eq(index2).addClass('active').siblings().removeClass('active');    
+    }
+</script>
+</body>
+</html>

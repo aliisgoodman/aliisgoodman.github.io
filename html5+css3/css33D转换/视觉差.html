@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .bigwrap{
+          display: flex;
+          justify-content: space-around;
+      }
+
+      .wrap {
+        /* margin: 0 auto; */
+        width: 500px;
+        height: 500px;
+        display: flex;
+        justify-content: space-around;
+        perspective: 400px;
+        transform-style: preserve-3d;
+        perspective-origin: 50% 50%;
+        transition: all 0.2s;
+      }
+      .wrap1 {
+        /* margin: 0 auto; */
+        width: 500px;
+        height: 500px;
+        display: flex;
+        justify-content: space-around;
+        perspective: 400px;
+        transform-style: preserve-3d;
+        perspective-origin: 50% 50%;
+        transition: all 0.2s;
+      }
+      .box {
+        cursor: pointer;
+        height: 300px;
+        width: 250px;
+        margin: auto 0;
+        background: url(g5.jpg);
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        transition: inherit;
+
+        transform-style: preserve-3d;
+        transform: translateZ(10px);
+      }
+      
+      .box > ul {
+        list-style: none;
+        color: #fff;
+        font-size: 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 160px;
+        height: 240px;
+        margin: auto;
+        border: 4px solid #fff;
+        transform: translateZ(10px);
+        text-align: center;
+        transform-style: preserve-3d;
+        transition: inherit;
+      }
+      .box > ul > li {
+        transform: translateZ(10px);
+        transition: inherit;
+      }
+      .box1 {
+        cursor: pointer;
+        height: 300px;
+        width: 250px;
+        margin: auto 0;
+        background: url(g2.jpg);
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        transition: inherit;
+
+        transform-style: preserve-3d;
+        transform: translateZ(10px);
+      }
+      
+      .box1 > ul {
+        list-style: none;
+        color: #fff;
+        font-size: 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 160px;
+        height: 240px;
+        margin: auto;
+        border: 4px solid #fff;
+        transform: translateZ(10px);
+        text-align: center;
+        transform-style: preserve-3d;
+        transition: inherit;
+      }
+      .box1 > ul > li {
+        transform: translateZ(10px);
+        transition: inherit;
+      }
+    </style>
+  </head>
+  <body>
+      <div class="bigwrap">
+    <div class="wrap">
+      <div class="box">
+        <ul>
+          <li>Loving you!</li>
+          <li>Are you Ok?</li>
+        </ul>
+      </div>
+      
+    </div>
+    <div class="wrap1">
+        <div class=" box1">
+            <ul>
+              <li>Loving you!</li>
+              <li>Are you Ok?</li>
+            </ul>
+          </div>
+    </div>
+</div>
+    <script>
+      var wrap = document.getElementsByClassName("wrap")[0];
+      var wrap1 = document.getElementsByClassName("wrap1")[0];
+
+      var box = document.getElementsByClassName("box")[0];
+      var box1 = document.getElementsByClassName("box1")[0];
+
+      box.onmousemove = function(e) {
+        wrap.style.perspectiveOrigin = e.offsetX + "px " + e.offsetY + "px";
+      };
+      box.onmouseout = function(e) {
+        wrap.style.perspectiveOrigin = "50% 50%";
+      };
+      box1.onmousemove = function(e) {
+        wrap1.style.perspectiveOrigin = e.offsetX + "px " + e.offsetY + "px";
+      };
+      box1.onmouseout = function(e) {
+        wrap1.style.perspectiveOrigin = "50% 50%";
+      };
+    </script>
+  </body>
+</html>

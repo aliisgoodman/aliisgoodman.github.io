@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loading</title>
+    <style>
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        ul>li {
+            margin-right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <!-- <li>
+        <p>使用svg：</p>
+        <svg width="100" height="100" viewBox="0 0 100 100">
+          <rect x="0" y="30" width="20" height="10" fill="lightblue">
+            <animate
+              attributeType="XML"
+              attributeName="width"
+              values="20;60;20"
+              dur="1"
+              repeatCount="indefinite"
+            />
+          </rect>
+          <rect x="0" y="45" width="20" height="10" fill="lightsalmon">
+            <animate
+              attributeType="XML"
+              attributeName="width"
+              values="20;60;20"
+              begin="0.2"
+              dur="1"
+              repeatCount="indefinite"
+            />
+          </rect>
+          <rect x="0" y="60" width="20" height="10" fill="lightgreen">
+            <animate
+              attributeType="XML"
+              attributeName="width"
+              values="20;60;20"
+              begin=".4"
+              dur="1"
+              repeatCount="indefinite"
+            />
+          </rect>
+        </svg>
+      </li> -->
+
+        <li>
+            <p>使用svg：</p>
+            <svg width="100" height="100" viewBox="0 0 100 100">
+                <circle id="cir" cx="50" cy="50" r="10">
+                    <animate attributeType="XML" attributeName="cx" values="32;68;32" dur="1.5"
+                        repeatCount="indefinite" />
+                </circle>
+                <circle id="circle" cx="50" cy="50" r="8" />
+            </svg>
+            <style>
+                #cir {
+                    fill: lightsalmon;
+                }
+
+                #circle {
+                    fill: lightsalmon;
+                }
+            </style>
+        </li>
+
+        <li>
+            <p>使用svg：</p>
+            <svg width="100" height="100">
+                <path
+                    d="m50,42.47718c7.42131,-17.12886 36.49826,0 0,22.02282c-36.49826,-22.02282 -7.42131,-39.15168 0,-22.02282z"
+                    fill="transparent" stroke="lightsalmon" stroke-width="1" fill-opacity='.4' />
+                <circle r="4" style="fill:magenta">
+
+                    <animateMotion
+                        path="m50,42.47718c7.42131,-17.12886 36.49826,0 0,22.02282c-36.49826,-22.02282 -7.42131,-39.15168 0,-22.02282z"
+                        dur="1.5" repeatCount="indefinite">
+
+
+                </circle>
+
+            </svg>
+        </li>
+
+        <li>
+            <p>使用css3:</p>
+            <div>
+                <ol>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+
+                </ol>
+            </div>
+            <style>
+                div {
+                    margin-top: 60px;
+                    width: 100px;
+                    height: 10px;
+                    border: 1px solid rgb(224, 136, 163);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    overflow: hidden;
+                }
+
+                ol {
+                    margin: 0;
+                    padding: 0;
+                    list-style: none;
+                    display: flex;
+                    justify-content: space-around;
+                    animation: aaa 2s linear infinite;
+                }
+
+                ol>li {
+                    width: 10px;
+                    height: 8px;
+                    margin-left: 1px;
+                    background: lightskyblue;
+                    border-radius: 4px;
+                }
+
+                @keyframes aaa {
+                    from {
+                        transform: translateX(-100px);
+                    }
+
+                    to {
+                        transform: translateX(100px);
+                    }
+
+                }
+            </style>
+        </li>
+
+        <li>
+            <p>使用css3加js:</p>
+            <div class="div">
+                <ol class="ol">
+                    <li class="active"></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+
+
+
+
+                </ol>
+            </div>
+            <style>
+                .div {
+                    margin-top: 60px;
+                    width: 100px;
+                    height: 10px;
+                    border: 0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    overflow: hidden;
+                }
+
+                .div>.ol {
+                    height: 40px;
+                    margin: 0;
+                    padding: 0;
+                    list-style: none;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-around;
+                    animation: aaa 0s linear infinite;
+                }
+
+                .ol>li {
+                    width: 10px;
+                    height: 10px;
+                    margin-left: 3px;
+                    border: 1px solid sienna;
+                    background: lightskyblue;
+                    border-radius: 50%;
+                    transition: all .2s;
+                }
+
+                .ol>li.active {
+                    transform: scale(1.2);
+                    background: #fff;
+                }
+            </style>
+        </li>
+
+        <li>
+            <p>使用canvas:</p>
+            <canvas id="canvas" width="100" height="100" ></canvas>
+            <style>
+                #canvas{
+                    
+                    transform: rotate(0deg);
+                    animation: yyy 1.5s linear infinite backwards;
+                }
+                @keyframes yyy {
+                    from{
+                    transform: rotate(0deg);
+                    }
+                    
+                    to{
+                    transform: rotate(360deg);
+                    }
+                }
+            </style>
+        </li>
+
+        <li>
+            <p>使用canvas:</p>
+            <canvas id="canvas1" width="100" height="100" ></canvas>
+            <style>
+                #canvas1{
+                   
+                    transform: rotate(0deg);
+                    animation: yyy 1s linear infinite backwards;
+                }
+                @keyframes yyy {
+                    from{
+                    transform: rotate(0deg);
+                    }
+                    
+                    to{
+                    transform: rotate(360deg);
+                    }
+                }
+            </style>
+        </li>
+       
+
+    </ul>
+
+    <script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+
+    <script>
+        // jq加上css动画
+        var i = 0
+        setInterval(function () {
+            i++;
+            if (i >= $('.ol>li').length) {
+                i = 0;
+            }
+            $('.ol>li').eq(i).addClass('active').siblings().removeClass('active')
+        }, 200);
+
+        // canvas动画
+        /**@type {HTMLCanvasElement}*/
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+        context.beginPath();
+
+        context.fillStyle = 'magenta';
+
+        context.arc(50, 50, 15, 0, 2 * Math.PI);
+        context.fill();
+        
+        
+        
+        context.closePath();
+
+        for (var j = 0; j < 40; j++) {
+            if (j % 2) {
+                context.beginPath();
+                context.fillStyle = 'orange';
+                context.moveTo(50, 50);
+                context.arc(50, 50, 20, j / 20 * Math.PI, (j + 1) / 20 * Math.PI);
+                context.fill();
+                context.closePath();
+            }
+        }
+        context.beginPath();
+
+        context.fillStyle = 'white';
+
+        context.arc(50, 50, 10, 0, 2 * Math.PI);
+        context.fill();
+        context.closePath();
+        
+
+        // 第二个canvas
+        var canvas1 = document.getElementById("canvas1");
+        var context1 = canvas1.getContext("2d");
+        context1.beginPath();
+        context1.lineWidth=3;
+        context1.strokeStyle='lightgreen';
+        context1.arc(50, 50,15, 0, Math.PI *2);
+        context1.stroke();
+        context1.closePath();
+        context1.beginPath();
+        context1.lineWidth=3;
+        context1.strokeStyle='lightgreen';
+        context1.moveTo(50, 50);
+        context1.lineTo(50, 65);
+        context1.stroke();
+        
+        
+
+        
+        
+        
+        
+
+    </script>
+</body>
+
+</html>

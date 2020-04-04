@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://cdn.staticfile.org/minireset.css/0.0.2/minireset.css" />
+	<script src="https://cdn.staticfile.org/jquery/2.2.4/jquery.min.js"></script>
+	<style>
+		 form{width: 600px;margin:0 auto;}
+		  form>div.radio{margin: 20px 0;}
+		 form>div.radio>label>span{display: inline-block;width: 12px;height: 12px;border: 2px solid lightblue;border-radius: 50%;transition: all .4s}
+		 form>div.radio>label{margin: 0 5px;cursor: pointer;}
+		 form>div.radio>label>input{display: none;}
+
+		  form>div.checkbox>label>span{display: inline-block;width: 20px;height: 20px;border: 4px solid lightblue;border-radius: 5px;transition: all .4s}
+		  form>div.checkbox>label{margin: 0 5px;cursor: pointer;}
+		 form>div.checkbox>label>input{display: none;}
+
+	</style>
+</head>
+<body>
+
+	<form action="">
+		<div class="radio">
+			<label >
+				<span></span>
+				<input type="radio" name="sex" value="1">男
+			</label>
+			<label >
+				<span></span>
+				<input type="radio" name="sex" value="2">女
+			</label>
+			<label >
+				<span></span>
+				<input type="radio" name="sex" value="3">保密
+			</label>
+		</div>
+
+		<div class="checkbox">
+			<label >
+				<span></span>
+				<input type="checkbox" name="like" value="4">爬山
+			</label>
+			<label >
+				<span></span>
+				<input type="checkbox" name="like" value="5">跳绳
+			</label>
+			<label >
+				<span></span>
+				<input type="checkbox" name="like" value="6">跑步
+			</label>
+			<label >
+				<span></span>
+				<input type="checkbox" name="like" value="7">游泳
+			</label>
+		</div>
+
+	</form>
+	
+
+	<script>
+		
+		$('.radio>label').click(function(){
+
+			$('.radio>label>span').css('background','none');
+
+			if($(this).find('input').prop('checked')){
+
+				$(this).find('span').css('background','pink')
+			};
+		});
+
+		
+
+		$('.checkbox>label').click(function(){	
+
+			if($(this).find('input').prop('checked')){
+
+				$(this).find('span').css('background','lightgreen')
+			}else{
+				$(this).find('span').css('background','none')
+			}
+		});
+
+		
+
+		
+		$('label').hover(function(){
+			$(this).find('span').css('boxShadow','0px 0px 4px lightblue')
+		},function(){
+			$(this).find('span').css('boxShadow','none')
+		})
+
+
+	</script>
+	
+</body>
+</html>

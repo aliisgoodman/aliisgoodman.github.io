@@ -1,0 +1,286 @@
+// 清楚默认样式
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+// 最外层的盒子样式
+.wrap {
+  width: 800px;
+  height: 800px;
+  margin: 0 auto;
+  //   弹性盒子
+  display: flex;
+  //   规定3d转换透视距离，100px到1000px之间，值越大透视视觉越弱
+  perspective: 1000px;
+  //   反转超出隐藏
+  overflow: hidden;
+  //   规定发生3d转换时的嵌套方式为3d嵌套
+  transform-style: preserve-3d;
+  //   让弹性盒子中的所有子元素水平居中
+  justify-content: center;
+}
+
+.box {
+  width: 360px;
+  height: 540px;
+  //   规定弹性盒子
+  display: flex;
+  //   让弹性盒子中的所有子元素水平居中
+  justify-content: center;
+  //   规定弹性盒子所有子元素的排列方式，也就是主轴方向
+  flex-direction: column;
+  //   为转换元素设置过渡，过渡属性为所有，持续时间为1s
+  transition: all 1s;
+  background: url(g5.jpg);
+  background-size: cover;
+  background-position: center;
+  //   规定转换元素的基准点为x轴50% y轴50% z轴150px。3d转换
+  transform-origin: 50% 50% 150px;
+  // 规定3d转换的嵌套方式为3d嵌套
+  transform-style: preserve-3d;
+  position: relative;
+  top: 0;
+  left: 0;
+  border-radius: 30px;
+  text-align: center;
+  //   x轴翻转0度,不翻转
+  transform: rotateX(0deg);
+  // 定义公共样式的less混合(函数).一样样式的元素可以直接像函数一样调用,
+  .box-mask-1 {
+    letter-spacing: 1px;
+    font-size: 22px;
+    color: #fff;
+    // z轴移动0px.x翻转0度
+    transform: translateZ(0px) rotateX(0deg);
+    // 过渡方式为继承父元素过渡方式
+    transition: inherit;
+    // 规定转换嵌套方式为3d嵌套
+    transform-style: preserve-3d;
+  }
+  h3 {
+    //   调用公共样式的less函数
+    .box-mask-1();
+  }
+  h5 {
+    //   调用公共样式的less函数
+    .box-mask-1();
+  }
+  h6 {
+    //   调用公共样式的less函数
+    .box-mask-1();
+  }
+// 树状图
+  ul {
+    //   规定弹性盒子
+    display: flex;
+    // 规定弹性盒子中所有子元素居中
+    justify-content: center;
+    // 规定过渡方式为继承父元素
+    transition: inherit;
+    margin: 30px 0;
+
+    li {
+      width: 30px;
+      height: 30px;
+      background: rgb(229, 194, 205);
+      margin: 0 15px;
+      position: relative;
+      top: 0;
+      left: 0;
+    //   规定转换嵌套方式为3d嵌套
+      transform-style: preserve-3d;
+    //   水平旋转-45度
+      transform: rotate(-45deg);
+    //   规定过渡方式为继承父元素
+      transition: inherit;
+      span {
+        display: block;
+        width: 30px;
+        height: 30px;
+        background: rgb(229, 194, 205);
+        // 规定z轴移动0px
+        transform: translateZ(0px);
+        // 规定过渡方式为继承父元素
+        transition: inherit;
+      }
+    //   定义公共样式的less混合函数，方便调用。实现代码复用
+      .limask {
+        //   设置伪元素before和after最初样式为透明背景色
+        background: transparent;
+        position: absolute;
+        top: 0;
+        left: 0;
+        //   设置伪元素before和after最初样式为宽度为0px
+        width: 0;
+        //   设置伪元素before和after最初样式为高度为30px
+        height: 30px;
+        // 使用伪元素必须有content属性
+        content: "";
+        padding-right: 20px;
+        // 规定转换基准点为x轴0，y轴100%
+        transform-origin: 0 100%;
+        box-sizing: border-box;
+        // 规定继承父元素过渡方式
+        transition: inherit;
+      }
+      &::before {
+        //   调用公共样式的less函数
+        .limask();
+        text-align: right;
+        // 规定y轴旋转-90度
+        transform: rotateY(-90deg);
+      }
+      &::after {
+        .limask();
+        // 规定y轴旋转-90度，x轴旋转90度
+        transform: rotateY(-90deg) rotateX(90deg);
+      }
+    }
+  }
+// 顶公共样式的less混合函数，方便调用。实现代码复用
+  .box-mask {
+    //   伪元素必须配合使用conten属性
+    content: "";
+    position: absolute;
+    border-radius: 30px;
+    display: block;
+    // 伪元素宽高为父元素的100%
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left:0 ;
+  }
+  &::before {
+    .box-mask();
+    z-index: -1;
+    background: #000;
+    transform: translateZ(-20px);
+    // 盒子阴影
+    box-shadow: 0 0 15px 10px rgba(22, 20, 20, 0.3);
+  }
+  &::after {
+    .box-mask();
+    transition: inherit;
+    opacity: 0.5;
+  }
+}
+// 鼠标点击的是添加的active类，用在根本承载样式的box上。
+.active {
+  transform: rotateX(60deg);
+  &:after {
+    background: rgb(238, 153, 167);
+  }
+  h3 {
+    transform: translateZ(20px);
+  }
+  h5 {
+    transform: translateZ(20px);
+  }
+  h6 {
+    transform: translateZ(20px) rotateX(-30deg);
+  }
+  ul {
+    li:nth-child(1) {
+      span {
+        display: block;
+        width: 30px;
+        height: 30px;
+        background: rgb(229, 194, 205);
+        transform: translateZ(200px);
+      }
+      &::after {
+        width: 200px;
+        background: lightblue;
+      }
+      &::before {
+        content: "youarebester";
+        background: lightblue;
+        width: 200px;
+      }
+    }
+    li:nth-child(2) {
+      span {
+        display: block;
+        width: 30px;
+        height: 30px;
+        background: rgb(229, 194, 205);
+        transform: translateZ(100px);
+      }
+      &::after {
+        width: 100px;
+        height: 30px;
+        background: rgb(209, 173, 230);
+      }
+      &::before {
+        content: "comebady";
+        background: rgb(209, 173, 230);
+
+        width: 100px;
+        height: 30px;
+      }
+    }
+    li:nth-child(3) {
+      span {
+        display: block;
+        width: 30px;
+        height: 30px;
+        background: rgb(229, 194, 205);
+        transform: translateZ(150px);
+      }
+      &::after {
+        width: 150px;
+        height: 30px;
+        background: rgb(158, 164, 216);
+      }
+      &::before {
+        content: "workheader";
+        background: rgb(158, 164, 216);
+        width: 150px;
+        height: 30px;
+      }
+    }
+    li:nth-child(4) {
+      span {
+        display: block;
+        width: 30px;
+        height: 30px;
+        background: rgb(229, 194, 205);
+        transform: translateZ(260px);
+      }
+      &::after {
+        width: 260px;
+        height: 30px;
+        background: rgb(171, 233, 159);
+      }
+      &::before {
+        content: "loveyou";
+        background: rgb(171, 233, 159);
+
+        width: 260px;
+        height: 30px;
+      }
+    }
+    li:nth-child(5) {
+      span {
+        display: block;
+        width: 30px;
+        height: 30px;
+        background: rgb(229, 194, 205);
+        transform: translateZ(180px);
+      }
+      &::after {
+        width: 180px;
+        height: 30px;
+        background: rgb(236, 181, 164);
+      }
+      &::before {
+        content: "goodwork";
+        background: rgb(236, 181, 164);
+
+        width: 180px;
+        height: 30px;
+      }
+    }
+  }
+}

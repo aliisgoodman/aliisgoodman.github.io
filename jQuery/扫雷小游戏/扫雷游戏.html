@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrap {
+
+            overflow: hidden;
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+        ul {
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            width: 300px;
+            height: 300px;
+
+
+        }
+
+        ul li {
+            width: 20px;
+            height: 20px;
+            background: url(./4.jpg) 0 0 /100% 100%;
+            outline: 1px solid gray;
+
+
+        }
+
+        ul li span {
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: #ccc;
+        }
+
+        dl {
+            cursor: pointer;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            width: 250px;
+        }
+
+        dl dd,
+        dl dt {
+
+            border-radius: 30px;
+            background: lightgreen;
+            text-align: center;
+
+
+        }
+
+        dl dt {
+            line-height: 50px;
+            width: 80px;
+            height: 50px;
+
+        }
+
+        dl dd {
+            display: none;
+        }
+
+
+        p {
+            background: lightblue;
+            border-radius: 10px;
+            padding: 5px 10px;
+
+        }
+        ol{
+            margin: 0 10px;
+            padding: 0;
+            list-style:none;
+
+        }
+        ol li{
+            padding: 5px;
+            text-align: center;
+            border-radius: 5px;
+            margin: 5px 0 0 0px;
+            background: gray;
+            color: #fff;
+            transition: all .3s
+        }
+        ol li.active{
+            
+            background: lightsalmon;
+
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        
+        <ul>
+
+        </ul>
+        <ol>难度选择：
+            <li class="active">简单</li>
+            <li>一般</li>
+            <li>困难</li>
+        </ol>
+        <dl>
+            <dd>GameOver，请重新开始游戏。</dd>
+            <dt>重来</dt>
+            <p>此次有<a></a>颗地雷，请小心。 </p>
+        </dl>
+        
+    </div>
+
+    <script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+
+    <script>
+
+        var b = Math.floor(Math.random() * 40) + 20;
+        // 改变模式的函数
+        function change() {
+        	// 清空ul
+            $('ul').empty()
+            // 添加li和遮罩
+            for (var i = 0; i < 225; i++) {
+                $('ul').append('<li><span></span></li>')
+            }
+            // 创建一个60-100的随机数用来表示雷的数量
+            // b = Math.floor(Math.random() * 40) + 60
+            // 空数组用来装随机数b
+            var arr = []
+            // 提醒用户多少颗雷
+            $('a').html(b)
+            // 循环跟雷等量的0-225之间的随机数压入数组，用于随机产生雷，因为一共225个小格子。
+            for (var j = 0; j < b; j++) {
+                arr.push(Math.floor(Math.random() * 225))
+            }
+            // 循环将随机数对应小格子添加雷。
+            for (var k = 0; k < arr.length; k++) {
+                $('ul li').eq(arr.splice(0, 1)).css({ 'background': 'url(./1.jpg) 0 0/100% 100%' })
+            }
+            // 因为li是后面创的，所以需要给ul下面的li创建未来事件。
+            $('ul').on('click', 'li', function () {
+            	// 去除遮罩，用的遍历所有直接子元素方法children，此处li只有一个直接子元素，因为此处用find方法有些问题
+                $(this).children().css('display', 'none')
+                // 判断是否背景是雷，$(this).css('background').indexOf('/1.jpg') != -1  表示字符串中是否有改字符串，有返回下标，没有返回-1
+                if ($(this).css('background').indexOf('/1.jpg') != -1) {
+
+                	// 如果是雷，循环所有小方块，将所以等雷显示出来
+                    $('ul li').each(function (index, ele) {
+                        if ($(ele).css('background').indexOf('/1.jpg') != -1) {
+                            
+                            $(ele).children().css('display', 'none')
+
+                        }
+
+                    })
+                    // 提示用户游戏结束
+                    $('dd').css({ 'display': 'block' })
+
+                    // 取消ul的子元素li的未来点击时间
+                    $('ul').off('click', 'li')
+                }
+            })
+        }
+        // 游戏初始化，
+        change()
+        // 难度选择
+        $('ol li').each(function(index,ele){
+            $(ele).click(function(){
+                b = Math.floor(Math.random() * 40) + (index+1)*20;
+                $(this).addClass('active').siblings().removeClass('active')
+                change()
+            })
+        })
+
+
+        // 点击重新开始
+        $('dt').click(function () {
+            $('dd').css({ 'display': 'none' })
+            change()   
+
+        })
+
+
+
+    </script>
+
+</body>
+
+</html>

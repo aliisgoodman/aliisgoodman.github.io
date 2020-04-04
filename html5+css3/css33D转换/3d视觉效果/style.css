@@ -1,0 +1,274 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.wrap {
+  width: 800px;
+  height: 800px;
+  margin: 0 auto;
+  display: flex;
+  perspective: 1000px;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  justify-content: center;
+}
+.box {
+  width: 360px;
+  height: 540px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  transition: all 1s;
+  background: url(g5.jpg);
+  background-size: cover;
+  background-position: center;
+  transform-origin: 50% 50% 150px;
+  transform-style: preserve-3d;
+  position: relative;
+  top: 0;
+  left: 0;
+  border-radius: 30px;
+  text-align: center;
+  transform: rotateX(0deg);
+}
+.box .box-mask-1 {
+  letter-spacing: 1px;
+  font-size: 22px;
+  color: #fff;
+  transform: translateZ(0px) rotateX(0deg);
+  transition: inherit;
+  transform-style: preserve-3d;
+}
+.box h3 {
+  letter-spacing: 1px;
+  font-size: 22px;
+  color: #fff;
+  transform: translateZ(0px) rotateX(0deg);
+  transition: inherit;
+  transform-style: preserve-3d;
+}
+.box h5 {
+  letter-spacing: 1px;
+  font-size: 22px;
+  color: #fff;
+  transform: translateZ(0px) rotateX(0deg);
+  transition: inherit;
+  transform-style: preserve-3d;
+}
+.box h6 {
+  letter-spacing: 1px;
+  font-size: 22px;
+  color: #fff;
+  transform: translateZ(0px) rotateX(0deg);
+  transition: inherit;
+  transform-style: preserve-3d;
+}
+.box ul {
+  display: flex;
+  justify-content: center;
+  transition: inherit;
+  margin: 30px 0;
+}
+.box ul li {
+  width: 30px;
+  height: 30px;
+  background: #e5c2cd;
+  margin: 0 15px;
+  position: relative;
+  top: 0;
+  left: 0;
+  transform-style: preserve-3d;
+  transform: rotate(-45deg);
+  transition: inherit;
+}
+.box ul li span {
+  display: block;
+  width: 30px;
+  height: 30px;
+  background: #e5c2cd;
+  transform: translateZ(0px);
+  transition: inherit;
+}
+.box ul li .limask {
+  background: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 30px;
+  content: "";
+  padding-right: 20px;
+  transform-origin: 0 100%;
+  box-sizing: border-box;
+  transition: inherit;
+}
+.box ul li::before {
+  background: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 30px;
+  content: "";
+  padding-right: 20px;
+  transform-origin: 0 100%;
+  box-sizing: border-box;
+  transition: inherit;
+  text-align: right;
+  transform: rotateY(-90deg);
+}
+.box ul li::after {
+  background: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 30px;
+  content: "";
+  padding-right: 20px;
+  transform-origin: 0 100%;
+  box-sizing: border-box;
+  transition: inherit;
+  transform: rotateY(-90deg) rotateX(90deg);
+}
+.box .box-mask {
+  content: "";
+  position: absolute;
+  border-radius: 30px;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0 ;
+}
+.box::before {
+  content: "";
+  position: absolute;
+  border-radius: 30px;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0 ;
+  z-index: -1;
+  background: #000;
+  transform: translateZ(-20px);
+  box-shadow: 0 0 15px 10px rgba(22, 20, 20, 0.3);
+}
+.box::after {
+  content: "";
+  position: absolute;
+  border-radius: 30px;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0 ;
+  transition: inherit;
+  opacity: 0.5;
+}
+.active {
+  transform: rotateX(60deg);
+}
+.active:after {
+  background: #ee99a7;
+}
+.active h3 {
+  transform: translateZ(20px);
+}
+.active h5 {
+  transform: translateZ(20px);
+}
+.active h6 {
+  transform: translateZ(20px) rotateX(-30deg);
+}
+.active ul li:nth-child(1) span {
+  display: block;
+  width: 30px;
+  height: 30px;
+  background: #e5c2cd;
+  transform: translateZ(200px);
+}
+.active ul li:nth-child(1)::after {
+  width: 200px;
+  background: lightblue;
+}
+.active ul li:nth-child(1)::before {
+  content: "youarebester";
+  background: lightblue;
+  width: 200px;
+}
+.active ul li:nth-child(2) span {
+  display: block;
+  width: 30px;
+  height: 30px;
+  background: #e5c2cd;
+  transform: translateZ(100px);
+}
+.active ul li:nth-child(2)::after {
+  width: 100px;
+  height: 30px;
+  background: #d1ade6;
+}
+.active ul li:nth-child(2)::before {
+  content: "comebady";
+  background: #d1ade6;
+  width: 100px;
+  height: 30px;
+}
+.active ul li:nth-child(3) span {
+  display: block;
+  width: 30px;
+  height: 30px;
+  background: #e5c2cd;
+  transform: translateZ(150px);
+}
+.active ul li:nth-child(3)::after {
+  width: 150px;
+  height: 30px;
+  background: #9ea4d8;
+}
+.active ul li:nth-child(3)::before {
+  content: "workheader";
+  background: #9ea4d8;
+  width: 150px;
+  height: 30px;
+}
+.active ul li:nth-child(4) span {
+  display: block;
+  width: 30px;
+  height: 30px;
+  background: #e5c2cd;
+  transform: translateZ(260px);
+}
+.active ul li:nth-child(4)::after {
+  width: 260px;
+  height: 30px;
+  background: #abe99f;
+}
+.active ul li:nth-child(4)::before {
+  content: "loveyou";
+  background: #abe99f;
+  width: 260px;
+  height: 30px;
+}
+.active ul li:nth-child(5) span {
+  display: block;
+  width: 30px;
+  height: 30px;
+  background: #e5c2cd;
+  transform: translateZ(180px);
+}
+.active ul li:nth-child(5)::after {
+  width: 180px;
+  height: 30px;
+  background: #ecb5a4;
+}
+.active ul li:nth-child(5)::before {
+  content: "goodwork";
+  background: #ecb5a4;
+  width: 180px;
+  height: 30px;
+}
+/*# sourceMappingURL=./style.css.map */

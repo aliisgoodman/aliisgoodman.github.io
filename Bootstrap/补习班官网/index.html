@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>ArchiPlus</title>
+    <!-- Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css" />
+    <link rel="sheetcut icon" href="./user/images/thumb.png" />
+    <link rel="stylesheet" href="style.css" />
+    
+  </head>
+
+  <body>
+    <!-- .container 类用于固定宽度并支持响应式布局的容器。 -->
+    <!-- <div class="container">  
+        </div> -->
+    <!-- .container-fluid 类用于 100% 宽度，占据全部视口（viewport）的容器。 -->
+    <!-- <div class="container-fluid">
+        </div> -->
+
+    <!-- 头部  our为自己的命名空间 -->
+    <div class="ourwrap-1">
+      <div class="container">
+        <div class="ourheader">
+          <div class="row">
+            <div class="col-md-6 col-xs-12">
+              Welcome to ArchiPlus - your Building Consulant
+            </div>
+            <div class="col-md-6 col-xs-12">
+              <div class="row">
+                <div class="col-md-6 our-col-md-6 col-xs-12">
+                  <span
+                    class="glyphicon glyphicon-envelope"
+                    aria-hidden="true"
+                  ></span
+                  ><a href="#">+856 5545 5555</a>
+                </div>
+                <div class="col-md-6 col-xs-12">
+                  <span
+                    class="glyphicon glyphicon-download-alt"
+                    aria-hidden="true"
+                  ></span
+                  ><a href="#">info@website.com</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <nav class="navbar navbar-default our-navbar">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button
+                type="button"
+                class="navbar-toggle collapsed"
+                data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1"
+                aria-expanded="false"
+              >
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#"
+                ><img
+                  src="./user/images/logo.png"
+                  class="img-responsive"
+                  alt="Responsive image"
+              /></a>
+            </div>
+            <!-- HOME  BLOG  BLOG POST  CONTACT  BUY PRO VERSION -->
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#">HOME </a></li>
+              <li><a href="#">BLOG</a></li>
+              <li><a href="#">BLOG POST</a></li>
+              <li><a href="#">CONTACT</a></li>
+              <li><a href="#">BUY PRO VERSION</a></li>
+            </ul>
+            <!-- /.navbar-collapse -->
+          </div>
+          <!-- /.container-fluid -->
+        </nav>
+      </div>
+    </div>
+
+    <!-- 轮播图 our为自己的命名空间-->
+    <div>
+      <div
+        id="carousel-example-generic"
+        class="carousel slide"
+        data-ride="carousel"
+        data-interval="100000"
+      >
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <div class="carousel-caption">
+              <p>Get your Dream House today</p>
+              <h4>Building Consultant</h4>
+              <a class="btn btn-default" href="#" role="button"
+                >GET TOUR QUOTE</a
+              >
+            </div>
+            <div class="carousel-caption our-carousel-caption">
+              <span>1</span><a>/3</a>
+            </div>
+            <span class="ourspan"></span>
+          </div>
+
+          <div class="item">
+            <div class="carousel-caption">
+              <p>Get your Dream House today</p>
+              <h4>Building Consultant</h4>
+              <a class="btn btn-default" href="#" role="button"
+                >GET TOUR QUOTE</a
+              >
+            </div>
+            <div class="carousel-caption our-carousel-caption">
+              <span>2</span><a>/3</a>
+            </div>
+            <span class="ourspan"></span>
+          </div>
+          <div class="item">
+            <div class="carousel-caption">
+              <p>Get your Dream House today</p>
+              <h4>Building Consultant</h4>
+              <a class="btn btn-default" href="#" role="button"
+                >GET TOUR QUOTE</a
+              >
+            </div>
+            <div class="carousel-caption our-carousel-caption">
+              <span>3</span><a>/3</a>
+            </div>
+            <span class="ourspan"></span>
+          </div>
+        </div>
+
+        <!-- Controls -->
+        <a
+          class="left carousel-control our-carousel-control"
+          href="#carousel-example-generic"
+          role="button"
+          data-slide="prev"
+        >
+          <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a
+          class="right carousel-control our-carousel-control"
+          href="#carousel-example-generic"
+          role="button"
+          data-slide="next"
+        >
+          <span
+            class="glyphicon glyphicon-menu-right "
+            aria-hidden="true"
+          ></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- 第一页主题 our为自己的命名空间-->
+    <div class="ourwrap-2">
+      <div class="container">
+        <h3>About Us</h3>
+        <p>our story</p>
+        <div class="row">
+          <div class="col-sm-6 col-xs-12">
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book. It has survived not
+            only five centuries, but also the leap into electronic
+          </div>
+          <div class="col-sm-6 col-xs-12">
+            It is a long established fact that a reader will be distracted by
+            the readable content of a page when looking at its layout. The point
+            of using Lorem Ipsum is that it has a more-or-less normal
+            distribution of letters, as opposed to using 'Content here, content
+            here', making it look like readable English. Services Below
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 第2页主题 swiper插件轮播图  our为自己的命名空间 -->
+    <div class="ourwrap-3">
+      <div class="container">
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="./user/images/service-icon6.png" alt="" />
+              <h4>BUILDING PLAN　DESIGN</h4>
+            </div>
+            <div class="swiper-slide">
+              <img src="./user/images/service-icon1.png" alt="" />
+              <h4>BUILDING PLAN　DESIGN</h4>
+            </div>
+            <div class="swiper-slide">
+              <img src="./user/images/service-icon2.png" alt="" />
+              <h4>BUILDING PLAN　DESIGN</h4>
+            </div>
+            <div class="swiper-slide">
+              <img src="./user/images/service-icon3.png" alt="" />
+              <h4>BUILDING PLAN　DESIGN</h4>
+            </div>
+            <div class="swiper-slide">
+              <img src="./user/images/service-icon4.png" alt="" />
+              <h4>BUILDING PLAN　DESIGN</h4>
+            </div>
+            <div class="swiper-slide">
+              <img src="./user/images/service-icon5.png" alt="" />
+              <h4>BUILDING PLAN　DESIGN</h4>
+            </div>
+          </div>
+        </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
+
+        <a class="btn btn-default" href="#" role="button">VIEW MORE</a>
+      </div>
+    </div>
+
+    <!-- 第3页主题 our为自己的命名空间 -->
+    <div class="ourwrap-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 col-xs-12">
+            <h3>Projects</h3>
+            <h5>we are added some of featured projects</h5>
+            <p>
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s, when an unknown printer...
+            </p>
+            <a class="btn btn-default" href="#" role="button"
+              >VIEW All PROJECTS</a
+            >
+          </div>
+
+          <div class="col-md-8 col-xs-12">
+            <div class="swiper-container our-swiper-container">
+              <div class="swiper-wrapper">
+                <div
+                  class="swiper-slide"
+                  style="background: url(./user/images/home-project1.jpg) no-repeat 0 0 /cover;"
+                >
+                  <h3>Project Heading</h3>
+                  <p>califoria</p>
+                  <img src="./user/images/pin-icon.png" alt="" />
+                  <a href="#">view details</a>
+                </div>
+                <div
+                  class="swiper-slide"
+                  style="background: url(./user/images/home-project2.jpg) no-repeat 0 0 /cover;"
+                >
+                  <h3>Project Heading</h3>
+                  <p>califoria</p>
+                  <img src="./user/images/pin-icon.png" alt="" />
+                  <a href="#">view details</a>
+                </div>
+                <div
+                  class="swiper-slide"
+                  style="background: url(./user/images/home-project3.jpg) no-repeat 0 0 /cover;"
+                >
+                  <h3>Project Heading</h3>
+                  <p>califoria</p>
+                  <img src="./user/images/pin-icon.png" alt="" />
+                  <a href="#">view details</a>
+                </div>
+                <div
+                  class="swiper-slide"
+                  style="background: url(./user/images/home-project3.jpg) no-repeat 0 0 /cover;"
+                >
+                  <h3>Project Heading</h3>
+                  <p>califoria</p>
+                  <img src="./user/images/pin-icon.png" alt="" />
+                  <a href="#">view details</a>
+                </div>
+                <div
+                  class="swiper-slide"
+                  style="background: url(./user/images/home-project1.jpg) no-repeat 0 0 /cover;"
+                >
+                  <h3>Project Heading</h3>
+                  <p>califoria</p>
+                  <img src="./user/images/pin-icon.png" alt="" />
+                  <a href="#">view details</a>
+                </div>
+                <div
+                  class="swiper-slide"
+                  style="background: url(./user/images/home-project2.jpg) no-repeat 0 0 /cover;"
+                >
+                  <h3>Project Heading</h3>
+                  <p>califoria</p>
+                  <img src="./user/images/pin-icon.png" alt="" />
+                  <a href="#">view details</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 第4页主题 our为自己的命名空间 -->
+    <div class="ourwrap-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-6">
+            <h3>Testimonials</h3>
+            <p>what our client says about out service</p>
+            <div class="row">
+              <div class="col-md-10 col-md-offset-2">
+                <div class="swiper-container our-swiper-container-1">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <h2>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</h2>
+                      <span></span>
+                      <h4>Clienrt Name</h4>
+                      <h5>Deginstnation</h5>
+                    </div>
+                    <div class="swiper-slide">
+                      <h2>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</h2>
+                      <span></span>
+                      <h4>Clienrt Name</h4>
+                      <h5>Deginstnation</h5>
+                    </div>
+                    <div class="swiper-slide">
+                      <h2>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</h2>
+                      <span></span>
+                      <h4>Clienrt Name</h4>
+                      <h5>Deginstnation</h5>
+                    </div>
+                  </div>
+                  
+                </div>
+                <!-- 如果需要分页器 -->
+                <div class="swiper-pagination"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 第5页主题 our为自己的命名空间 -->
+    <div class="ourwrap-6">
+      <div class="container">
+        <h3>Blog & News</h3>
+        <p>below we are added some of our latest news</p>
+        <div class="row">
+          <div class="col-xs-12 col-sm-6">
+            <div class="ourdiv1 ourdiv">
+              <span class="glyphicon glyphicon-question-sign our-glyphicon-1 " aria-hidden="true"></span
+              ><span
+                class="glyphicon glyphicon-ok-sign our-glyphicon-2 "
+                aria-hidden="true"
+              ></span>
+            </div>
+            <h4>AUGUST 22, 2018</h4>
+            <h5>Preparing new pools</h5>
+            <p class="ourp">
+              It is a long established fact that a reader will be distracted by
+              the readable content of a page when looking at its layout...
+            </p>
+            <h6>
+              READ MORE<span
+                class="glyphicon glyphicon-arrow-right"
+                aria-hidden="true"
+              ></span>
+            </h6>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <div class="ourdiv2 ourdiv">
+              <span class="glyphicon glyphicon-question-sign our-glyphicon-1" aria-hidden="true"></span
+              ><span
+                class="glyphicon glyphicon-ok-sign our-glyphicon-2"
+                aria-hidden="true"
+              ></span>
+            </div>
+            <h4>AUGUST 22, 2018</h4>
+            <h5>Preparing new pools</h5>
+            <p class="ourp">
+              It is a long established fact that a reader will be distracted by
+              the readable content of a page when looking at its layout...
+            </p>
+            <h6>
+              READ MORE<span
+                class="glyphicon glyphicon-arrow-right"
+                aria-hidden="true"
+              ></span>
+            </h6>
+          </div>
+          
+        </div>
+        <a class="btn btn-default" href="#" role="button">View All Blog</a>
+      </div>
+    </div>
+
+    <!-- 第6页主题 our为自己的命名空间 -->
+    <div class="ourwrap-7">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-xs-12"></div>
+          <div class="col-md-6 col-xs-12">
+            <h3>Contact Us</h3>
+            <h5>Are you intrested to working with us</h5>
+            <p>
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since.
+            </p>
+            <a class="btn btn-default" href="#" role="button">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 第7页主题 our为自己的命名空间 -->
+    <div class="ourwrap-8">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4 col-xs-12">
+            <img src="./user/images/thumb.png" alt="" />
+            <h4>Address</h4>
+            <p>
+              Anthony Benoit 490, Street Norwich CT 063 info@website.com +98
+              9887 8899 0009
+            </p>
+            <a href="#"
+              ><span
+                class="glyphicon glyphicon-bullhorn"
+                aria-hidden="true"
+              ></span
+            ></a>
+            <a href="#"
+              ><span
+                class="glyphicon glyphicon-hand-right"
+                aria-hidden="true"
+              ></span
+            ></a>
+            <a href="#"
+              ><span
+                class="glyphicon glyphicon-hand-up"
+                aria-hidden="true"
+              ></span
+            ></a>
+          </div>
+          <div class="col-sm-8 col-xs-12">
+            <div class="row">
+              <div class="col-sm-12 ">
+                <div class="row">
+                  <div class="col-sm-4 ">
+                    <h4>Navigation</h4>
+                    <ul>
+                      <li><a href="#">Home</a></li>
+                      <li><a href="#">About Us</a></li>
+                      <li><a href="#">Estimate Preparation</a></li>
+                      <li><a href="#">Building plan design</a></li>
+                      <li><a href="#">Building Testing</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-sm-3 ">
+                    <h4>   </h4>
+                    <ol>
+                      <li><a href="">Services</a></li>
+                      <li><a href="">Blog</a></li>
+                      <li><a href="">Pages</a></li>
+                      <li><a href="">Contact Us</a></li>
+                    </ol>
+                  </div>
+
+                  <div class="col-sm-5 ">
+                    <h4>Newsletter</h4>
+                    <p>
+                      Enter your email address for getting daily news letter
+                    </p>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Emial"
+                    />
+                    <a class="btn btn-default" href="#" role="button"><img src="./user/images/white-phone.png" alt=""></span></a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-12 our-col-sm-12 ">
+                Copyright 2018 All Rights Reserved by ArchiPlus, More Templates
+                模板之家 - Collect from 网页模板
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+
+    <script>
+      //swiper插件轮播图
+      var mySwiper = new Swiper(".swiper-container", {
+        slidesPerGroup: 4,
+        slidesPerView: 4,
+        slidesPerGroupSkip: 4,
+
+        // 如果需要分页器
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true
+        }
+      });
+
+      var ourSwiper = new Swiper(".our-swiper-container", {
+        slidesPerGroup: 2,
+        slidesPerView: 2,
+        slidesPerGroupSkip: 4,
+
+        // 如果需要分页器
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true
+        }
+      });
+     
+      var ourSwiper = new Swiper(".our-swiper-container-1", {
+
+        // 如果需要分页器
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true
+        }
+      });
+    
+    
+    
+    </script>
+  </body>
+</html>

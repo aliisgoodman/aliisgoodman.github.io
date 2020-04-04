@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding-bottom: 0;
+		}
+		#div{
+			margin: 200px auto;
+			width: 600px;
+			height: 40px;
+			font-size: 22px;
+			line-height: 40px;
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			background: orange;
+			color: #fff;
+			border-radius: 10px; 
+		}
+
+	</style>
+
+</head>
+<body>
+
+	<div id="div">春有百花秋有月，夏有凉风冬有雪，如无闲事挂心头，便是人间好时节。一声梧桐一声秋，一点芭蕉一点愁。</div>
+
+	<script>
+		
+		var div = document.getElementById('div');
+		
+		
+
+		setInterval(function(){
+			var arr = div.innerHTML.split('');
+				div.style.background = 'green';
+				arr.push(arr.shift());
+				div.innerHTML = arr.join('');
+
+				setTimeout(function(){
+					div.style.background = 'red';
+ 					
+				}, 100);	
+
+				setTimeout(function(){
+					div.style.background = 'orange';
+ 					
+				}, 200);
+				console.log(this);
+
+		}, 300);	
+
+	
+	</script>
+
+</body>
+</html>

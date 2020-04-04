@@ -1,0 +1,55 @@
+
+/*定义轮播图最大盒子的宽高*/
+ /*代码复用的时候只需要定义wrap盒子的宽高即可。 */
+ *{padding: 0;
+ 	margin: 0;
+ }
+ ul,ol,dl{
+ 	list-style: none;
+ }
+.ourlunbotu{
+	width: 800px;
+	height: 400px;
+	margin: 0 auto;
+	position: relative;
+	overflow: hidden;
+}
+/*图片*/
+.ourlunbotu .banner{
+	position: absolute;
+	left: 0;
+}
+.ourlunbotu .banner li{
+	float: left;
+	cursor: pointer;
+}
+/*小圆点*/
+.ourlunbotu .cricle{
+	position: absolute;
+	bottom: 10px; 
+}
+
+.ourlunbotu .cricle li{
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	float: left;
+	margin: 0 5px;
+	background: lightgreen;
+	cursor: pointer;
+}
+.ourlunbotu .cricle li.active{
+	background: red;
+}
+/*按钮*/
+.ourlunbotu .left,.ourlunbotu .right{
+	width: 60px;
+	height: 80px;
+	background: lightskyblue;
+	opacity: .5;
+	position: absolute;
+	font-size: 40px;
+	text-align: center;
+	line-height: 80px;
+	cursor: pointer;
+}

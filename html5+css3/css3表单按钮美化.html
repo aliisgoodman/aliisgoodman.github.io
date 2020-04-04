@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form{display: flex;justify-content: center;margin-top: 20px;flex-direction: column;align-items: center;}
+		 .div1 label{cursor: pointer;margin: 0 20px;cursor: pointer;}
+        .div1 span{
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border: 4px solid lightblue;
+            border-radius: 50%;
+        }
+        .div1 input:checked+span{
+            background: gray;
+        }
+        .div1 label>input{
+            display: none;
+        }
+
+
+		.div2{margin-top: 20px}
+        .div2 label{cursor: pointer;margin: 0 20px;cursor: pointer;}
+        .div2 span{
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            border: 4px solid lightblue;
+            border-radius: 8px;
+        }
+        .div2 input:checked+span{
+            background: pink;
+        }
+        .div2 label>input{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <form action="" method="GET">
+    	<div class="div1">
+        <label>
+            <input type="radio" value="1" name="fav"> 
+            <span></span>
+            男
+        </label><label>
+            <input type="radio" value="1" name="fav"> 
+            <span></span>
+            女
+        </label>
+        <label>
+            <input type="radio" value="1" name="fav"> 
+            <span></span>
+            保密
+        </label>
+</div>
+<div class="div2">
+        <label>
+            <input type="checkbox" value="1" name="fav"> 
+            <span></span>
+            orange
+        </label>
+        <label>
+            <input type="checkbox" value="2"  name="fav">
+            <span></span>
+            apple
+        </label>
+        <label>
+            <input type="checkbox" value="3"  name="fav">
+            <span></span>
+            bananer
+        </label></div>
+    </form>
+</body>
+</html>

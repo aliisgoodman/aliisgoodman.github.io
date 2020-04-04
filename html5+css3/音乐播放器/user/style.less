@@ -1,0 +1,229 @@
+body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  color: #ffffff;
+  background: lightgreen;
+  .container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    .wrap {
+      height: 100vh;
+      width: 400px;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+
+      .ourrow {
+        border-radius: 20px;
+        background: lightsalmon;
+      }
+      .glyphicon {
+        padding: 0 5px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      .col-md-3 {
+        padding: 0;
+      }
+      .col-md-9 {
+        position: relative;
+        padding: 0;
+
+        .progress1 {
+          position: absolute;
+          width: 85px;
+          height: 4px;
+          transition: none;
+          top: 7px;
+          left: 0px;
+          background: white;
+          
+        }
+        span{
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          background: green;
+          width: 0;
+          height: 4px;
+          z-index: 0;
+        }
+        .cricle1 {
+          position: absolute;
+          top: -4px;
+          left: 0px;
+          width: 8px;
+          height: 12px;
+          border-radius: 50%;
+          background: red;
+         z-index: 1;
+        }
+      }
+      .col-md-6 {
+        input {
+          display: inline-block;
+          width: 85px;
+          height: 12px;
+          position: absolute;
+          top: 4px;
+          left: 0;
+          z-index: 2;
+          opacity: 0;
+          cursor: pointer;
+        }
+      }
+      .col-md-8 {
+        box-sizing: border-box;
+        padding-left: 30px;
+        h3{
+          font-size: 20px;
+          margin: 15px 0 0 0;
+        }
+        .name{
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between;
+          span{
+           cursor: pointer;
+            margin: 9px 10px 0 0;
+            font-size: 14px;
+          }
+        }
+
+        .song{
+          // margin-top: 8px;
+          position: relative;
+          ol{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        position: absolute;
+        top: 24px;
+        left: 0px;
+        .li1{
+          position: absolute;
+          top: 0;
+          right: -200px;
+        }
+       
+      }
+        }
+         .input1 {
+          margin-top: 8px;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 2;
+          opacity: 0;
+          cursor: pointer;
+        }
+         .progress2 {
+          position: absolute;
+          width: 241.66px;
+          height: 4px;
+background: white;
+          top: 16px;
+          left: 0px;
+          span{
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: green;
+            width: 0;
+            height: 4px;
+            z-index: 0;
+          }
+        }
+        .cricle2 {
+          position: absolute;
+          bottom: -4px;
+          left: 0px;
+          width: 8px;
+          height: 12px;
+          border-radius: 50%;
+          background: red;
+          z-index: 1;
+        }
+      }
+      .col-md-4 {
+        height: 143.33px;
+        background: url("https://www.17sucai.com/preview/1160620/2018-10-11/Music-player/images/cd.png");
+        background-size: 100%;
+        background-position: center;
+        border: 50%;
+        position: relative;
+        top: 0;
+        left: 0;
+        span {
+          display: block;
+          position: absolute;
+          top: 20%;
+          left: 20%;
+          width: 60%;
+          height: 60%;
+
+          border-radius: 50%;
+          box-sizing: border-box;
+          animation: myrotate 5s linear infinite backwards;
+          animation-play-state: paused;
+          &.active {
+            animation-play-state: running;
+          }
+        }
+        a {
+          display: block;
+          position: absolute;
+          top: 5px;
+          right: 0px;
+          width: 30px;
+          height: 75px;
+          background: url("https://www.17sucai.com/preview/1160620/2018-10-11/Music-player/images/cd_tou.png")
+            no-repeat;
+          background-size: contain;
+          background-position: center;
+          transform: rotate(-30deg);
+          // -8deg
+          transform-origin: 50% 0%;
+          transition: all 1s;
+          &.active {
+            transform: rotate(-8deg);
+          }
+        }
+      }
+      
+      ul {
+        margin: 20px 0;
+        padding: 0;
+        list-style: none;
+
+        font-size: 18px;
+        li {
+          padding: 3px 10px;
+          border-radius: 10px;
+          margin-bottom: 5px;
+          background: lightblue;
+          &.active{
+            color: rgb(212, 31, 25);
+          }
+          span{
+            float: right;
+          }
+        }
+      }
+    }
+  }
+}
+@keyframes myrotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

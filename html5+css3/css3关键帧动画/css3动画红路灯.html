@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .wrap {
+        width: 200px;
+        height: 400px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      ul {
+        width: 70px;
+        height: 180px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        background: rgb(75, 67, 67);
+        border-radius: 40px;
+        box-shadow: 5px 0px 86px -15px rgba(43, 35, 35, 0.507);
+      }
+      ul>li{
+          width: 40px;
+          height: 40px;border-radius: 50%;
+     
+      }
+      ul>li:nth-child(1){
+          animation: myred1 6s  infinite ;
+      }
+      /* 给3个灯给同样的动画的时间，然后在他们的关键帧里面让他们在不同的时间段执行显示出来，
+      就有了循环动画的效果。 */
+      @keyframes myred1 {
+        from{background-color: rgb(153, 150, 150);}
+        20%{background-color: rgb(163, 136, 136);box-shadow: 0 0 0px 0px red}
+        21%{background-color: red;box-shadow: -1px 1px 2px 3px red;}
+        30%{background-color: red;box-shadow: -1px 1px 2px 3px red;}
+        31%{background-color: rgb(163, 136, 136);box-shadow: 0 0 0px 0px red}
+        to{background-color: rgb(153, 150, 150);}
+
+
+      }
+      ul>li:nth-child(2){
+          animation: myred2 6s  infinite ;
+      }
+      @keyframes myred2 {
+        from{background-color: rgb(153, 150, 150);}
+        50%{background-color: rgb(163, 136, 136);box-shadow: 0 0 0px 0px rgb(247, 244, 244)}
+        51%{background-color: orange;box-shadow: -1px 1px 2px 3px orange;}
+        60%{background-color: orange;box-shadow: -1px 1px 2px 3px orange;}
+        61%{background-color: rgb(163, 136, 136);box-shadow: 0 0 0px 0px rgb(247, 244, 244)}
+        to{background-color: rgb(153, 150, 150);}
+
+      }
+      ul>li:nth-child(3){
+          animation: myred3 6s  infinite ;
+      }
+
+      @keyframes myred3 {
+        from{background-color: rgb(153, 150, 150);}
+        80%{background-color: rgb(163, 136, 136);box-shadow: 0 0 0px 0px red}
+        81%{background-color: green;box-shadow: -1px 1px 2px 3px green;}
+        95%{background-color: green;box-shadow: -1px 1px 2px 3px green;}
+        96%{background-color: rgb(163, 136, 136);box-shadow: 0 0 0px 0px red}
+        to{background-color: rgb(153, 150, 150);}
+
+
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+  </body>
+</html>

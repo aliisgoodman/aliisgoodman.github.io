@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://cdn.staticfile.org/minireset.css/0.0.2/minireset.css" />
+	<script src="https://cdn.staticfile.org/jquery/2.2.4/jquery.min.js"></script>
+	<style>
+		*{margin: 0;padding: 0}
+		/*.wrap{position: relative;}*/
+		.div1{width: 400px;height: 400px;}
+		
+		.div2{width: 400px;height: 400px;background-image: url(1.jpg);position: absolute;top: 0;left: 400px;display: none;background-repeat: no-repeat;}
+
+		.div3{background: lightgreen;opacity: .5;position: absolute;top:0;left:0;display: none;width: 200px;height: 200px}
+
+		button{width: 60px;height: 40px;outline: 0;border-radius: 10px;margin-top: 5px;background: lightgreen;border: 0;transition: all .5s}
+		button:hover{background: lightblue;box-shadow: 0 0 2px 2px #ccc}
+
+
+
+		
+		
+	</style>
+</head>
+<body>
+	
+	<div class="div1">
+		<img src="1.jpg" >
+		<div class="div3"></div>
+
+	</div>
+
+	<div class="div2"></div>
+	
+	<button>2倍</button>
+	<button>4倍</button>
+	<button>6倍</button>
+	
+	<script>
+
+		var level = 2;
+		//首先调用函数
+		change()
+		//按钮绑定点击事件切换倍数
+		$('button').on('click',function(){
+			level = parseInt($(this).html())
+			change()	
+		})
+
+
+		function change(){
+			//切换倍数同时切换遮罩层的大小，倍数越大，遮罩层相对于展示图片盒子的宽高越小，div1。width/level就是遮罩层的宽高。
+			$('.div3').css({width: $('.div1').width()/level  + 'px',height:$('.div1').height()/level + 'px'})
+			
+			//切换倍数的同时切换放大镜背景图片的大小，展示图片盒子的大小/遮罩层盒子的大小*放大镜盒子的宽度就是背景图片的大小。div1.width/div3.width*div2.width。正方形，不管高度
+			$('.div2').css('background-size', $('.div1').width()/$('.div3').width() * $('.div2').width() + 'px')
+			// $('.div2').css('background-size', level * $('.div2').width() + 'px auto')
+
+			$('.div1').on({mouseover:function(){
+				$('.div2').css('display','block');
+				$('.div3').css('display','block');
+			},mousemove:function(e){
+				var x = e.pageX - $('.div3')[0].offsetWidth/2;
+				var y = e.pageY - $('.div3')[0].offsetHeight/2;
+
+				x = x <= 0 ? 0 : x;
+				x = x >= $('.div1')[0].offsetWidth-$('.div3')[0].offsetWidth ? $('.div1')[0].offsetWidth-$('.div3')[0].offsetWidth : x;
+				y = y <= 0 ? 0 : y;
+				y = y >= $('.div1')[0].offsetHeight-$('.div3')[0].offsetHeight ? $('.div1')[0].offsetHeight-$('.div3')[0].offsetHeight : y;
+
+				$('.div3').css({left:x + 'px',top:y + 'px'})
+				$('.div2').css({'background-position-x':-x*level + 'px','background-position-y':-y*level + 'px'})
+				
+			},mouseout:function(){
+				$('.div2').css('display','none');
+				$('.div3').css('display','none');
+			}})
+		}
+
+		
+
+		
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+
+	<style>
+		*{margin: 0;padding: 0;}
+		div.wrap{width: 300px;height: 300px;margin: 0 auto;border: 5px solid orange;position: relative;overflow: hidden;}
+		div.wrap>div{width: 100px;height: 100px;background: url(1.jpg);position: absolute;
+		background-size: 300px 300px;box-sizing: border-box;border: 1px solid #fff;cursor: pointer;}
+		div.wrap>div.div1{top: 0;left: 0;}
+		div.wrap>div.div2{top: 0;left: 100px;}
+		div.wrap>div.div3{top: 0;left: 200px;}
+		div.wrap>div.div4{top: 100px;left: 0px;}
+		div.wrap>div.div5{top: 100px;left: 100px;}
+		div.wrap>div.div6{top: 100px;left: 200px;}
+		div.wrap>div.div7{top: 200px;left: 0px;}
+		div.wrap>div.div8{top: 200px;left: 100px;}
+		div.wrap>div.div9{top: 200px;left: 200px;}
+		
+
+		#div2{background-position: -100px 0;}
+		#div3{background-position: -200px 0;}
+		#div4{background-position: 0 200px;}
+		#div5{background-position: 200px 200px;}
+		#div6{background-position: 100px 200px;}
+		#div7{background-position: 300px 100px;}
+		#div8{background-position: 200px 100px;}
+		#div9{background: #fff;cursor: auto;}
+
+
+
+		div.header{width: 220px;height: 220px;background: url(1.jpg);position: absolute;top: 20px;left: 100px}
+
+		div.fff{width: 73px;height: 73px;background: #fff;position: absolute;top: 166px;left: 246px;text-align: center;line-height: 73px;font-size: 14px}
+		
+		div.reset{width: 100px;height: 30px;text-align: center;background: green;color: #fff;line-height: 30px;position: absolute;top: 200px;right:200px;cursor: pointer;}
+
+	</style>
+
+
+</head>
+<body>
+
+
+	
+	<div class="wrap">
+		<div class="div1"  style="top: 0;left: 0;"></div>	
+		<div class="div2"  style="top: 0;left: 100px;"></div>	
+		<div class="div3"  style="top: 0;left: 200px;"></div>	
+		<div class="div4"  style="top: 100px;left: 0;"></div>	
+		<div class="div5"  style="top: 100px;left: 100px;"></div>	
+		<div class="div6"  style="top: 100px;left: 200px;"></div>	
+		<div class="div7"  style="top: 200px;left: 0;"></div>	
+		<div class="div8"  style="top: 200px;left: 100px;"></div>	 
+		<div class="div9"  style="top: 200px;left: 200px;"></div>
+
+	</div>
+
+	<div class="reset">重新开始</div>
+
+	<div class="header"></div>
+
+	<div class="fff">原图展示</div>
+	
+	<script>
+		var divs = document.getElementsByClassName('wrap')[0].getElementsByTagName('div');
+		
+		var reset = document.getElementsByClassName('reset')[0];
+		var fff = document.getElementsByClassName('fff')[0];
+		//点击本地刷新，重新开始游戏
+		reset.onclick = function(){
+			window.location.reload()
+		}
+
+
+		//数组装填交换的id名，样式为背景图片的位置及空白，用于随机打乱
+		var arr = ['div1','div2','div3','div4','div5','div6','div7','div8','div9'];
+
+		//随机给各自添加id名，打乱展示
+		for(var i = 0;i < divs.length;i++){
+
+			divs[i].id = arr.splice(Math.floor(Math.random()*arr.length),1);
+
+		}
+
+		//循环绑定事件
+		for(var i = 0;i < divs.length;i++){
+
+			divs[i].onclick = function(){
+				//每次点击都重新获取id名为div9的空白盒子的位置
+				var div9 = document.getElementById('div9');
+
+				//判断是否为空白，不是则进行交换	
+				if (this.id != 'div9') {
+					//每次点击都获取空白格子的位置和点击的的格子的位置。用于判断点击的盒子是否符合交换要求
+					//空白格子距离上面的距离
+					var div9Top = parseInt(div9.style.top);
+					//点击的格子距离上面的距离
+					var divTop = parseInt(this.style.top);
+					//空白格子距离左边的距离
+					var div9Left = parseInt(div9.style.left);
+					//点击的格子距离左边的距离
+					var divLeft = parseInt(this.style.left);
+					//判断，当点击的盒子top与空白的top一样时，那么空白距左边的距离减去点击的距离左边的位置为正负
+					//一个格子的宽度则符合交换要求。
+					if ((div9.style.top == this.style.top && ((div9Left-divLeft) == 100 || (div9Left-divLeft) == -100)) || (div9.style.left == this.style.left && ((div9Top-divTop) == 100 || (div9Top-divTop) == -100))) {
+						//将id名交换，也就是将背景图片的位置和空白格交换，实现移动效果
+						var a = this.id;
+						var b = div9.id;
+
+						this.id = b;
+						div9.id = a;
+
+					}
+				}
+		
+				
+				//判断当id名与格子一一对应时则拼图成功
+				if (divs[0].id=='div1' && divs[1].id=='div2' && divs[2].id=='div3' && divs[3].id=='div4' && divs[4].id=='div5' && divs[5].id=='div6' && divs[6].id=='div7' && divs[7].id=='div8' && divs[8].id=='div9') {
+
+						fff.innerHTML = '拼图成功';
+						fff.style.color = 'red';
+				}		
+			}
+		}
+
+		
+		
+
+
+
+
+
+
+
+	</script>
+
+
+</body>
+</html>

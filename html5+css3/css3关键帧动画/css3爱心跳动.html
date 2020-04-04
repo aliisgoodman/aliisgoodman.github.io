@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .wrap {
+        /*width: 1000px;*/
+        height: 500px;
+        margin: 0 auto;
+        background: rgb(43, 41, 161);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .wrap > ul {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .wrap > ul > li {
+        width: 20px;
+        height: 200px;
+        margin: 5px;
+        border-radius: 50px;
+
+      }
+
+      .wrap > ul > li:nth-child(1) {
+        background: rgb(245, 111, 111);
+        height: 20px;
+        animation: change1 4s linear infinite;
+      }
+      @keyframes change1 {
+        from {
+          height: 20px;
+        }
+        5% {
+          height: 20px;
+        }
+
+        15% {
+          height: 60px;
+        }
+        45% {
+          height: 60px;
+        }
+
+        to {
+          height: 20px;
+        }
+      }
+      .wrap > ul > li:nth-child(2) {
+        background: rgb(248, 234, 106);
+        height: 20px;
+        animation: change2 4s linear infinite;
+      }
+
+      @keyframes change2 {
+        from {
+          height: 20px;
+        }
+        10% {
+          height: 20px;
+        }
+
+        20% {
+          height: 120px;
+        }
+        50% {
+          height: 120px;
+        }
+
+        to {
+          height: 20px;
+        }
+      }
+      .wrap > ul > li:nth-child(3) {
+        background: rgb(130, 202, 96);
+        height: 20px;
+        animation: change3 4s linear infinite;
+      }
+      @keyframes change3 {
+        from {
+          height: 20px;
+        }
+        15% {
+          height: 20px;
+        }
+
+        25% {
+          height: 160px;
+        }
+        55% {
+          height: 160px;
+        }
+
+        to {
+          height: 20px;
+        }
+      }
+      .wrap > ul > li:nth-child(4) {
+        background: rgb(101, 206, 164);
+        height: 170px;
+        animation: change4 4s linear infinite;
+      }
+      @keyframes change4 {
+        from {
+          height: 20px;
+          transform: translateY(0px);
+        }
+        20% {
+          height: 20px;
+          transform: translateY(0px);
+        }
+
+        30% {
+          height: 160px;
+          transform: translateY(25px);
+        }
+        60% {
+          height: 160px;
+          transform: translateY(25px);
+        }
+
+        to {
+          height: 20px;
+        }
+      }
+      .wrap > ul > li:nth-child(5) {
+        background: rgb(109, 241, 213);
+        height: 20px;
+
+        animation: change5 4s linear infinite;
+      }
+      @keyframes change5 {
+        from {
+          height: 20px;
+          transform: translateY(0px);
+        }
+        25% {
+          height: 20px;
+          transform: translateY(0px);
+        }
+
+        35% {
+          height: 160px;
+          transform: translateY(50px);
+        }
+        65% {
+          height: 160px;
+          transform: translateY(50px);
+        }
+
+        to {
+          height: 20px;
+        }
+      }
+      .wrap > ul > li:nth-child(6) {
+        background: rgb(111, 156, 240);
+        height: 20px;
+        animation: change6 4s linear infinite;
+      }
+      @keyframes change6 {
+        from {
+          height: 20px;
+          transform: translateY(0px);
+        }
+        30% {
+          height: 20px;
+          transform: translateY(0px);
+        }
+
+        40% {
+          height: 160px;
+          transform: translateY(25px);
+        }
+        70% {
+          height: 160px;
+          transform: translateY(25px);
+        }
+
+        to {
+          height: 20px;
+        }
+      }
+      .wrap > ul > li:nth-child(7) {
+        background: rgb(216, 111, 248);
+        height: 160px;
+        animation: change7 4s linear infinite;
+      }
+      @keyframes change7 {
+        from {
+          height: 20px;
+        }
+        35% {
+          height: 20px;
+        }
+
+        45% {
+          height: 160px;
+        }
+        75% {
+          height: 160px;
+        }
+
+        to {
+          height: 20px;
+        }
+      }
+      .wrap > ul > li:nth-child(8) {
+        background: rgb(207, 102, 134);
+        height: 120px;
+        animation: change8 4s linear infinite;
+
+      }
+      @keyframes change8 {
+        from {
+          height: 20px;
+        }
+        40% {
+          height: 20px;
+        }
+
+        50% {
+          height: 120px;
+        }
+        80% {
+          height: 120px;
+        }
+
+        to {
+          height: 20px;
+        }
+      }
+      .wrap > ul > li:nth-child(9) {
+        background: rgba(238, 123, 132, 0.719);
+        height: 60px;
+        animation: change9 4s linear infinite;
+
+      }
+      @keyframes change9 {
+        from {
+          height: 20px;
+        }
+        45% {
+          height: 20px;
+        }
+
+        55% {
+          height: 60px;
+        }
+        85% {
+          height: 60px;
+        }
+
+        to {
+          height: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+  </body>
+</html>

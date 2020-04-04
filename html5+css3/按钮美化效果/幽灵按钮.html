@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+       * {
+        margin: 0;
+        padding: 0;
+      }
+      div.paopao {
+        width: 400px;
+        
+        margin: 40px auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      button {
+        font-size: 24px;
+        color: #fff;
+        position: relative;
+        z-index: 0;
+        top: 0;
+        left: 0;
+        background: rgb(240, 190, 124);
+        padding: 20px 35px;
+        border: 0;
+        outline: 0;
+        overflow: hidden;
+        border-radius: 20px;
+
+      }
+      button::before {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 100%;
+        left: 0;
+        z-index: -1;
+        border-radius: 20px;
+        background: rgb(142, 194, 247);
+        /* transition: all 1s; */
+      }
+      button::after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        /* z-index: -1; */
+        /* 使用重复背景给效果添加泡泡，在使用不同背景的背景位置实现上浮 */
+        background: radial-gradient(
+            circle at 50% 70%,
+            transparent 5%,
+            white 6%,
+            transparent 6.5%
+          ),
+          radial-gradient(
+            circle at 20% 40%,
+            transparent 8%,
+            white 10%,
+            transparent 10.5%
+          ),
+          radial-gradient(
+            circle at 10% 80%,
+            transparent 5%,
+            white 6%,
+            transparent 6.5%
+          ),
+          radial-gradient(
+            circle at 70% 80%,
+            transparent 7%,
+            white 8%,
+            transparent 9%
+          ),
+          radial-gradient(
+            circle at 55% 55%,
+            transparent 9%,
+            white 10%,
+            transparent 10.5%
+          ),
+          radial-gradient(
+            circle at 68% 42%,
+            transparent 8%,
+            white 9%,
+            transparent 10%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            transparent 2%,
+            white 3%,
+            transparent 3.5%
+          ),
+          radial-gradient(
+            circle at 90% 75%,
+            transparent 7%,
+            white 8%,
+            transparent 8.5%
+          );
+          /* 将所以背景设置到外面去，然后鼠标指上去冒出来 */
+          background-position: 0 100px,0 100px,0 100px,0 100px,0 100px,0 100px,0 100px,0 100px;
+        /* transition: all 1s; */
+        background-repeat: no-repeat;
+      }
+      button:hover::before {
+        top: 0;
+        /* 此时的过渡不能加在原始元素上面，否则在hover开始和结束的时候都会过渡，
+当我们需要鼠标指上去有过渡，而鼠标移开不需要任何过渡效果的时候就可以将过渡属性与hover鼠标一上去绑定在一起。
+这样可以实现开始有过渡，而结束没有过渡
+ */
+        transition: all .6s linear;
+      }
+      button:hover::after {
+        background-position: 20px -100px, 10px -100px,-14px -100px,20px -100px,-5px -100px ,20px -100px,32px -100px,-50px -100px;
+        opacity: 0.4;
+        transition: all 1.5s linear;
+      }
+     
+       ol {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        width: 200px;
+        height: 60px;
+        overflow: hidden;
+        margin: 50px auto;
+        text-align: center;
+        line-height: 60px;
+        font-size: 24px;
+        background: #eee;
+        color: green;
+        cursor: pointer;
+        position: relative;
+        padding: 0;
+        list-style: none;
+        justify-content: center;
+        transition: all .5s;
+      }
+      ol>li {
+        background: orange;
+        transition: all 0.7s;
+        position: absolute;
+      }
+      ol>li:nth-child(1) {
+        width: 200px;
+        height: 2px;
+        transform: translate(200px);
+        
+      
+        top: 0px;
+
+      }
+      ol>li:nth-child(2) {
+        width: 2px;
+        height: 60px;
+        transform: translateY(-60px);
+       
+        
+        left: 0px;
+
+      }
+      ol> li:nth-child(3) {
+        width: 200px;
+        height: 2px;
+        transform: translate(-200px);
+       
+        
+        bottom: 0px;
+
+      }
+      ol>li:nth-child(4) {
+        width: 2px;
+        height: 60px;
+        transform: translateY(60px);
+        right: 10px;
+      
+        right: 0px;
+
+      }
+      ol:hover{
+        transform: scale(.8);
+      }
+      ol:hover > li:nth-child(1) {
+        transform: translate(0px);
+      }
+      ol:hover > li:nth-child(2) {
+        transform: translate(0px);
+      }
+      ol:hover > li:nth-child(3) {
+        transform: translate(0px);
+      }
+    ol:hover > li:nth-child(4) {
+        transform: translate(0px);
+      }
+      
+      
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        width: 200px;
+        height: 60px;
+        overflow: hidden;
+        margin: 0 auto;
+        text-align: center;
+        line-height: 60px;
+        font-size: 24px;
+        background: #eee;
+        color: green;
+        cursor: pointer;
+        position: relative;
+        padding: 0;
+        list-style: none;
+        justify-content: center;
+        transition: all .5s;
+      }
+      ul>li {
+        background: orange;
+        transition: all 0.5s;
+        position: absolute;
+      }
+      ul> li:nth-child(1) {
+        width: 190px;
+        height: 2px;
+        transform: translate(200px);
+        top: 10px;
+        right: 10px;
+        /* top: 0px; */
+
+      }
+      ul> li:nth-child(2) {
+        width: 2px;
+        height: 50px;
+        transform: translateY(-60px);
+        left: 10px;
+        top: 10px;
+        /* left: 0px; */
+
+      }
+      ul> li:nth-child(3) {
+        width: 190px;
+        height: 2px;
+        transform: translate(-200px);
+        bottom: 10px;
+        left: 10px;
+        /* bottom: 0px; */
+
+      }
+      ul> li:nth-child(4) {
+        width: 2px;
+        height: 50px;
+        transform: translateY(60px);
+        right: 10px;
+        bottom: 10px;
+        /* right: 0px; */
+
+      }
+      ul:hover{
+        transform: scale(1.2);
+      }
+      ul:hover > li:nth-child(1) {
+        transform: translate(0px);
+      }
+      ul:hover > li:nth-child(2) {
+        transform: translate(0px);
+      }
+      ul:hover > li:nth-child(3) {
+        transform: translate(0px);
+      }
+      ul:hover > li:nth-child(4) {
+        transform: translate(0px);
+      }
+     
+    </style>
+  </head>
+  <body>
+    <div class="paopao">
+      <button>AnNiu</button>
+    </div>
+   
+
+    <ol>
+      AnNiu
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ol>
+    
+    <ul>
+      按钮
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+
+
+  </body>
+</html>

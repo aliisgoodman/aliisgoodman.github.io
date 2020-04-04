@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .wrap {
+        width: 400px;
+        height: 400px;
+        margin: 0 auto;
+        background: #ccc;
+        position: relative;
+      }
+
+      .wrap > .box {
+        width: 60px;
+        margin: 20px 0;
+        height: 130px;
+        border-radius: 40px;
+        background: rgb(88, 69, 69);
+        background-image: linear-gradient(white, white);
+        position: absolute;
+        top: 12px;
+        left: 168px;
+        animation: change1 4.5s linear infinite;
+        background-repeat: no-repeat;
+        background-position-y: 0px;
+      }
+      @keyframes change1 {
+        from {
+          background-position: 0 0;
+          top: 12px;
+        }
+        30% {
+          background-position: 0 140px;
+          top: 20px;
+        }
+        31% {
+          background-position: 0 0;
+          top: 12px;
+        }
+        60% {
+          background-position: 0 140px;
+          top: 20px;
+        }
+        61% {
+          background-position: 0 0;
+          top: 12px;
+        }
+        100% {
+          background-position: 0 140px;
+          top: 20px;
+        }
+      }
+      /* before伪元素添加与大背景一样的背景颜色放在box前方，两者一样的圆角，挡住box中间的背景，让box的背景位置移动，实现白色边框从上往下消失的效果
+      注意，这里的box的背景必须是不重复，否则没有效果。
+       */
+      .wrap > .box::before {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 85%;
+        height: 92%;
+        border-radius: 40px;
+        background: #ccc;
+
+        top: 5px;
+        left: 5px;
+      }
+      .wrap > .box::after {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 15px;
+        height: 15px;
+        top: 35px;
+        left: 22px;
+      
+        border-radius: 50%;
+        background: white;
+        animation: change2 1.5s linear infinite;
+      }
+      @keyframes change2 {
+        from {
+          top: 35px;
+         
+          transform: scale(1);
+        }
+        to {
+          top: 90px;
+         
+          transform: scale(0);
+
+        }
+      }
+      .wrap > p {
+        position: absolute;
+        top: 180px;
+        left: 158px;
+        font-size: 20px;
+        font-weight: 700;
+        color: white;
+        animation: change3 1.5s linear infinite;
+      }
+      @keyframes change3 {
+        from {
+          top: 180px;
+         opacity: 1;
+          
+        }
+        to {
+          top: 190px;
+         opacity: .2;
+         
+
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="box"></div>
+      <p>鼠标滚动</p>
+    </div>
+  </body>
+</html>
