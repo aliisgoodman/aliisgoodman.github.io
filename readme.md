@@ -92,6 +92,7 @@
 
         <li>    五、jQuery框架项目：
             <ol style="display: flex;flex-wrap: wrap;justify-content: space-around;">
+             <li><a  target="-blank" href="./jQuery/音乐播放器/音乐播放器.html">jQ+Ajax+H5新特性音乐播放器</a></li>
                 <li><a  target="-blank" href="./jQuery/简易无缝轮播复用/点击无缝轮播图.html">自制无缝轮播图插件</a></li>
                 <li><a  target="-blank" href="./jQuery/扫雷小游戏/扫雷游戏.html">扫雷小游戏</a></li>
                 <li><a  target="-blank" href="./jQuery/Ajax城市二级联动/城市二级联动.html">Ajax城市二级联动</a></li>

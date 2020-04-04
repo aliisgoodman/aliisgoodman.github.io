@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./user/style.css" />
+</head>
+
+<body>
+    <!-- .container 类用于固定宽度并支持响应式布局的容器。 -->
+    <!-- <div class="container">  
+        </div> -->
+    <!-- .container-fluid 类用于 100% 宽度，占据全部视口（viewport）的容器。 -->
+    <!-- <div class="container-fluid">
+        </div> -->
+
+
+    <div class="container" ">
+        <div class="wrap">
+            <video src=""></video>
+
+
+            <div class="row ourrow">
+                <div class="col-md-4">
+                    <span class="active"></span>
+                    <a class="active"></a>
+                </div>
+                <div class="col-md-8">
+                    <h3>歌曲名字</h3>
+                    <div class="name">
+                        <h5>歌手</h5><span>顺序播放</span>
+                    </div>
+
+
+                    <div class="row ">
+                        <div class="col-md-6">
+                            <span class="glyphicon glyphicon-step-backward" aria-hidden="true">
+                            </span>
+                            <span class="glyphicon glyphicon-play " aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-step-forward" aria-hidden="true"></span>
+                        </div>
+                        <div class="col-md-6">
+
+                            <div class="row">
+                                <div class="col-md-3"><span class="glyphicon glyphicon-volume-up"
+                                        aria-hidden="true"></span></div>
+                                <div class="col-md-9">
+                                    <input type="range" min="0" max="100" step="0.1" value="100" class="input" />
+                                    <div class="progress1">
+                                        <div class="cricle1"></div>
+                                        <span></span>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="song">
+                        <input type="range" min="0" max="100" step="0.1" value="0" class="input1" />
+                        <div class="progress2">
+                            <div class="cricle2"></div>
+                            <span></span>
+
+                        </div>
+                        <ol>
+                            <li>00:00</li>
+                            <li class="li1">00:00</li>
+
+                        </ol>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+            <ul>
+
+
+            </ul>
+
+        </div>
+
+
+        <script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+        <!-- <script src="./playlist.js"></script> -->
+        <script>
+
+            $.get('./user/playlist.json', function (data) {
+                var playlist = data.playlist;
+                console.log(data);
+        
+                // 初始化
+                var index = 0
+                var flag = 0
+                var a = 0
+                $('video')[0].preload = "auto"
+                $('video')[0].autoplay = 'true'
+                $('.cricle1').css('left', 79 + 'px')
+                $('.progress1 span').css('width', 79 + 'px')
+                // 点击开始或者暂停
+                $('.glyphicon-play').on('click', function () {
+                    $(this).toggleClass('glyphicon-pause')
+                    $('.col-md-4 span').toggleClass('active')
+                    $('.col-md-4 a').toggleClass('active')
+
+                    if ($(this).hasClass("glyphicon-pause")) {
+                        $('video')[0].pause()
+
+                    } else {
+                        $('video')[0].play()
+
+                    }
+                })
+                // 将改写的进度条喝input和音乐进度绑在一起
+                $('.input1')[0].oninput = function () {
+
+                    $('video')[0].currentTime = this.value / 100 * $('video')[0].duration
+
+                    if ((this.value / 100) * 241.66 >= 235) {
+                        $('.cricle2').css('left', 235 + 'px')
+                        $('.progress2 span').css('width', 235 + 'px')
+
+                    } else {
+                        $('.cricle2').css('left', (this.value / 100) * 241.66 + 'px')
+                        $('.progress2 span').css('width', (this.value / 100) * 241.66 + 'px')
+                    }
+                }
+                // 绑定音量
+                $('.col-md-9 .input').on('input', function () {
+
+                    if ((this.value / 100) * 85 >= 79) {
+                        $('.cricle1').css('left', 79 + 'px')
+                        $('.progress1 span').css('width', 79 + 'px')
+
+                    } else {
+                        $('.cricle1').css('left', (this.value / 100) * 85 + 'px')
+                        $('.progress1 span').css('width', (this.value / 100) * 85 + 'px')
+                    }
+
+                    $('video')[0].volume = this.value / 100
+
+                })
+                // 创建歌曲列表
+                playlist.forEach(function (ele, ind) {
+
+                    $('ul').append('<li>' + playlist[ind].name + '<span class="glyphicon glyphicon-headphones" aria-hidden="true"></span></li>').sib
+                });
+
+                // 改变歌曲的代码块
+                function changeSong() {
+                    $('.ourrow').css('background', 'rgb(' + Math.floor(Math.random() * 255) + ',' + Math.floor(Math.random() * 255) + ',' + Math.floor(Math.random() * 255) + ')')
+
+                    // $('video')[0].autoplay = 'true'
+
+                    $('h3').html(playlist[index].name)
+                    $('h5').html(playlist[index].artists)
+                    $('video').attr('src', playlist[index].id)
+
+
+                    // 设置显示歌曲时长
+                    $('video')[0].ondurationchange = function () {
+                        var a = Math.floor(this.duration / 60)
+                        var b = Math.floor(this.duration % 60)
+                        b = (b < 9 ? '0' + b : b)
+                        $('ol li').eq(1).html(a + ':' + b)
+
+                    }
+                    // 设置显示歌曲当前播放时间
+                    $('video')[0].ontimeupdate = function () {
+                        var a = Math.floor(this.currentTime / 60)
+                        var b = Math.floor(this.currentTime % 60)
+                        b = (b < 9 ? '0' + b : b)
+                        $('ol li').eq(0).html(a + ':' + b)
+
+                        if (isNaN(this.duration)) {
+                            return;
+                        }
+                        // 更新进度条
+                        $('.input1')[0].value = (this.currentTime / this.duration) * 100;
+
+                        // 将改写的进度条喝input和音乐进度绑在一起
+                        if (($('.input1')[0].value / 100) * 241.66 >= 235) {
+                            $('.cricle2').css('left', 235 + 'px')
+                            $('.progress2 span').css('width', 235 + 'px')
+
+                        } else {
+                            $('.cricle2').css('left', ($('.input1')[0].value / 100) * 241.66 + 'px')
+                            $('.progress2 span').css('width', ($('.input1')[0].value / 100) * 241.66 + 'px')
+                        }
+                    }
+                    // 将改写的进度条喝input和音乐进度绑在一起
+                    $('.input1')[0].oninput = function () {
+
+                        $('video')[0].currentTime = this.value / 100 * $('video')[0].duration
+
+                        if ((this.value / 100) * 241.66 >= 235) {
+                            $('.cricle2').css('left', 235 + 'px')
+                            $('.progress2 span').css('width', 235 + 'px')
+
+                        } else {
+                            $('.cricle2').css('left', (this.value / 100) * 241.66 + 'px')
+                            $('.progress2 span').css('width', (this.value / 100) * 241.66 + 'px')
+                        }
+                    }
+
+
+                    $('.col-md-4 span').css({
+                        'background': 'url("' + playlist[index].picUrl + '")',
+                        'background-size': 'cover',
+                        'background-position': 'center center'
+                    })
+
+
+                    $('ul li').eq(index).addClass('active').siblings().removeClass('active')
+                    $('ul span').eq(index).addClass('active').siblings().removeClass('active')
+                }
+
+                // 初始化歌曲播放
+                changeSong()
+
+                //顺序播放不循环
+                // 有bug结束过后动画和图标没换
+                function bbbbb() {
+                    $('video')[0].onended = function () {
+                        index++
+                        // length属性是从1开始，下标是从0开始，变量index也是0开始，所以判断大于length-1才是正确的。或者大于等于length
+                        if (index >= playlist.length) {
+                            $('video')[0].pause()
+
+                            return
+                        }
+                        changeSong()
+
+                    }
+                }
+                // 顺序循环播放，
+                function abcde() {
+                    $('video')[0].onended = function () {
+                        index++
+                        // length属性是从1开始，下标是从0开始，变量index也是0开始，所以判断大于length-1才是正确的。或者大于等于length
+                        if (index >= playlist.length) {
+                            index = 0
+                        }
+                        changeSong()
+                    }
+                }
+                // 随机播放
+                function acbed() {
+                    $('video')[0].onended = function () {
+                        index = Math.floor(Math.random() * playlist.length)
+                        changeSong()
+                    }
+                }
+                // 单曲循环
+                function aaaaa() {
+                    $('video')[0].onended = function () {
+
+                        changeSong()
+                    }
+                }
+
+                //设置如何自动播放
+                $('.name span').click(function () {
+                    flag++
+                    a = flag % 4
+                    if (a == 0) {
+                        $(this).html('顺序播放')
+                        bbbbb()
+                    } else if (a == 1) {
+                        $(this).html('随机播放')
+                        acbed()
+                    } else if (a == 2) {
+                        $(this).html('单曲循环')
+                        aaaaa()
+                    } else {
+                        $(this).html('列表循环')
+                        abcde()
+                    }
+                })
+
+                // 点击上一首
+                $('.glyphicon-step-backward').click(function () {
+                    $('.glyphicon-play').removeClass('glyphicon-pause')
+                    $('.col-md-4 span').addClass('active')
+                    $('.col-md-4 a').addClass('active')
+                    if (a == 1) {
+                        index = Math.floor(Math.random() * playlist.length)
+                    } else {
+                        index--
+                        if (index < 0) {
+                            index = playlist.length - 1
+                        }
+                    }
+                    changeSong()
+
+                })
+                // 点击下一首
+                $('.glyphicon-step-forward').click(function () {
+                    $('.glyphicon-play').removeClass('glyphicon-pause')
+                    $('.col-md-4 span').addClass('active')
+                    $('.col-md-4 a').addClass('active')
+                    if (a == 1) {
+                        index = Math.floor(Math.random() * playlist.length)
+                    } else {
+                        index++
+                        if (index > playlist.length - 1) {
+                            index = 0
+                        }
+                    }
+                    changeSong()
+                })
+
+                // 点击歌曲菜单播放
+                $('ul').on('dblclick', 'li', function () {
+                    index = $(this).index()
+                    changeSong()
+                })
+
+            })
+
+        </script>
+
+</body>
+
+</html>
