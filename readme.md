@@ -128,6 +128,6 @@ font-style: italic; " href="./jQuery/表单按钮美化/jq表单按钮美化.htm
 
 <h3>六、VUE项目：</h3>
 <div><a target="_blank" style="color: rgba(25, 34, 218, 0.993); 
-font-style: italic; " href="./vue/index.html">移动端音乐播放器</a>
+font-style: italic; " href="./dist/index.html">移动端音乐播放器</a>
 </div>
 
