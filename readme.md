@@ -124,9 +124,10 @@ font-style: italic; " href="./jQuery/倍数放大镜/jq倍数放大镜.html">放
 font-style: italic; " href="./jQuery/jQuery+css33D轮播图/jq立体轮播图.html">立体轮播图</a></div>
 <div>8.<a target="-blank" style="color: rgba(25, 34, 218, 0.993); 
 font-style: italic; " href="./jQuery/表单按钮美化/jq表单按钮美化.html">表单按钮美化</a></div>
+</div>
 
 <h3>六、VUE项目：</h3>
-<div>8.<a target="-blank" style="color: rgba(25, 34, 218, 0.993); 
+<div><a target="-blank" style="color: rgba(25, 34, 218, 0.993); 
 font-style: italic; " href="./dist/index.html">移动端音乐播放器</a>
 </div>
 
