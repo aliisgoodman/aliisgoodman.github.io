@@ -1,3 +1,6 @@
+<h2>陈力的个人项目展示</h2>
+<h3>应聘岗位：web前端工程师</h3>
+
 <h3>一、HTML+DIV+CSS项目：采用div和html基本标签实现结构层搭建，用css中浮动和定位等基本样式对结构层进行渲染。</h3>
 <div style="display: flex;justify-content: space-around;">
 
@@ -94,7 +97,6 @@ font-style: italic; " href="Bootstrap/模特官网/btspuse.html">项目3</a></di
 <div>4.<a target="-blank" style="color: rgba(25, 34, 218, 0.993); 
 font-style: italic; " href="Bootstrap/补习班官网/index.html">项目3</a></div>
 
-
 </div>
 
 <h3>五、jQuery框架项目：</h3>
@@ -122,4 +124,8 @@ font-style: italic; " href="./jQuery/jQuery+css33D轮播图/jq立体轮播图.ht
 <div>8.<a target="-blank" style="color: rgba(25, 34, 218, 0.993); 
 font-style: italic; " href="./jQuery/表单按钮美化/jq表单按钮美化.html">表单按钮美化</a></div>
 
+</div>
+<h3>六、VUE项目：</h3>
+<div>8.<a target="-blank" style="color: rgba(25, 34, 218, 0.993); 
+font-style: italic; " href="./dist/index.html">移动端音乐播放器</a></div>
 </div>
