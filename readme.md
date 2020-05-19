@@ -118,10 +118,13 @@ font-style: italic; " href="./jQuery/jQuery+css33D轮播图/jq立体轮播图.ht
 
 <h3>六、VUE项目：</h3>
 <div style="display: flex;justify-content: space-around;">
-<div><a target="_blank" style="color: rgba(25, 34, 218, 0.993); 
+<div>1.<a target="_blank" style="color: rgba(25, 34, 218, 0.993); 
 font-style: italic; " href="./dist/index.html">移动端音乐</a>
 </div>
-<div><a target="_blank" style="color: rgba(25, 34, 218, 0.993); 
+<div>2.<a target="_blank" style="color: rgba(25, 34, 218, 0.993); 
 font-style: italic; " href="./vmover/index.html">移动端视频</a>
+</div>
+<div>3.<a target="_blank" style="color: rgba(25, 34, 218, 0.993); 
+font-style: italic; " href="./todolist/todo.html">移动端备忘录</a>
 </div>
 </div>
