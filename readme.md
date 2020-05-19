@@ -18,7 +18,7 @@ font-style: italic; " href="./原生js+html+css/长江师范学院官网/1.html"
 
 <div>
 1.<a target="_blank" style="color: rgba(25, 34, 218, 0.993); 
-font-style: italic; " href="./原生js+html+css/电子个人简历/gerenjianli.html">简历模板</a>
+font-style: italic; " href="./原生js+html+css/电子个人简历/gerenjianli.html">电子简历</a>
 </div>
 <div>
 2.<a target="_blank" style="color: rgba(25, 34, 218, 0.993); 
@@ -41,10 +41,7 @@ font-style: italic; " href="./原生js+html+css/商品属性选择/商品属性�
 font-style: italic; " href="./原生js+html+css/购买商品/仿购买.html">购买商品</a>
 
 </div>
-<div>7.
-<a target="_blank" style="color: rgba(25, 34, 218, 0.993); 
-font-style: italic; " href="./原生js+html+css/跑马灯/paomadeng.html">跑马灯</a>
-</div>
+
 
 </div>
 
@@ -112,25 +109,19 @@ font-style: italic; " href="./jQuery/简易无缝轮播复用/点击无缝轮播
 <a target="_blank" style="color: rgba(25, 34, 218, 0.993); 
  font-style: italic; " href="./jQuery/扫雷小游戏/扫雷游戏.html">扫雷游戏</a>
  </div>
-<div>4.
-<a target="_blank" style="color: rgba(25, 34, 218, 0.993); 
-  font-style: italic; " href="./jQuery/Ajax城市二级联动/城市二级联动.html">城市联动</a>
-</div>
+
+<div>4.<a target="_blank" style="color: rgba(25, 34, 218, 0.993); 
+font-style: italic; " href="./jQuery/倍数放大镜/jq倍数放大镜.html">放大镜</a></div>
 <div>5.<a target="_blank" style="color: rgba(25, 34, 218, 0.993); 
-font-style: italic; " href="./jQuery/淘宝放大镜/商品放大镜.html">放大镜1</a></div>
-<div>6.<a target="_blank" style="color: rgba(25, 34, 218, 0.993); 
-font-style: italic; " href="./jQuery/倍数放大镜/jq倍数放大镜.html">放大镜2</a></div>
-<div>7.<a target="_blank" style="color: rgba(25, 34, 218, 0.993); 
 font-style: italic; " href="./jQuery/jQuery+css33D轮播图/jq立体轮播图.html">立体轮播图</a></div>
-<div>8.<a target="_blank" style="color: rgba(25, 34, 218, 0.993); 
-font-style: italic; " href="./jQuery/表单按钮美化/jq表单按钮美化.html">表单按钮美化</a></div>
 </div>
 
 <h3>六、VUE项目：</h3>
+<div style="display: flex;justify-content: space-around;">
 <div><a target="_blank" style="color: rgba(25, 34, 218, 0.993); 
-font-style: italic; " href="./dist/index.html">你的小音乐</a>
+font-style: italic; " href="./dist/index.html">移动端音乐</a>
 </div>
 <div><a target="_blank" style="color: rgba(25, 34, 218, 0.993); 
-font-style: italic; " href="./vmover/index.html">你的小视频</a>
+font-style: italic; " href="./vmover/index.html">移动端视频</a>
 </div>
-
+</div>
